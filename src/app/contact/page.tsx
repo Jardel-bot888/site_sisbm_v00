@@ -18,8 +18,8 @@ export default function ContactPage() {
     },
     {
       icon: "📞",
-      label: "Téléphone",
-      value: siteConfig.phone,
+      label: "Téléphones",
+      value: `${siteConfig.phone1} · ${siteConfig.phone2}`,
     },
     {
       icon: "✉️",
@@ -32,7 +32,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         title="Contactez-nous"
-        subtitle="Une question, un projet, une demande de devis ? Notre équipe vous répond sous 24h."
+        subtitle="Une question sur nos offres de tracking ? Une demande de devis pour votre flotte ? Nous vous répondons rapidement."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -58,21 +58,32 @@ export default function ContactPage() {
             ))}
 
             <div className="rounded-2xl bg-slate-50 p-6">
-              <h2 className="font-semibold text-slate-900">Horaires</h2>
+              <h2 className="font-semibold text-slate-900">Assistance</h2>
               <dl className="mt-3 space-y-1.5 text-sm text-slate-600">
                 <div className="flex justify-between">
-                  <dt>Lundi – Vendredi</dt>
-                  <dd className="font-medium text-slate-800">9h – 18h</dd>
+                  <dt>Offre STANDARD</dt>
+                  <dd className="font-medium text-slate-800">Limitée</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt>Samedi</dt>
-                  <dd className="font-medium text-slate-800">Fermé</dd>
+                  <dt>Offre GOLD</dt>
+                  <dd className="font-medium text-slate-800">Heures ouvrées</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt>Dimanche</dt>
-                  <dd className="font-medium text-slate-800">Fermé</dd>
+                  <dt>Offre PREMIUM</dt>
+                  <dd className="font-medium text-slate-800">24h/24 — 7j/7</dd>
                 </div>
               </dl>
+              <p className="mt-4 text-xs text-slate-500">
+                Site groupe :{" "}
+                <a
+                  href={siteConfig.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 hover:text-slate-800"
+                >
+                  {siteConfig.website}
+                </a>
+              </p>
             </div>
           </div>
 

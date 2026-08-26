@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navLinks, siteConfig } from "@/data/site";
+import { navLinks, media, siteConfig } from "@/data/site";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -11,15 +12,25 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+            <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-900 font-bold text-white">
-            S
-          </span>
+          <Image
+            src={media.logo}
+            alt={`Logo ${siteConfig.company}`}
+            width={40}
+            height={40}
+            className="h-10 w-auto"
+          />
           <span className="text-xl font-bold tracking-tight text-slate-900">
             {siteConfig.name}
           </span>
         </Link>
+
+        {/* Sous-titre produit */}
+        <span className="hidden items-center gap-1 text-xs font-semibold uppercase tracking-wider text-slate-500 xl:flex">
+          <span>{siteConfig.subtitle}</span>
+          <span aria-hidden>·</span>
+        </span>
 
         {/* Menu desktop */}
         <ul className="hidden items-center gap-8 md:flex">

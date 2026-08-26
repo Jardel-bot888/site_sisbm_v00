@@ -1,76 +1,102 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
-import TestimonialCard from "@/components/TestimonialCard";
-import { siteConfig, stats, team, testimonials, values } from "@/data/site";
+import { media, offers, reasons, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "À propos",
-  description: `Découvrez ${siteConfig.name}, notre histoire, nos valeurs et notre équipe dédiée à votre réussite.`,
+  description: `${siteConfig.company} et sa solution ${siteConfig.product} de gestion et supervision de flotte à Abidjan, Côte d'Ivoire.`,
 };
 
 export default function AboutPage() {
   return (
     <>
       <PageHeader
-        title={`À propos de ${siteConfig.name}`}
-        subtitle="Notre histoire, nos valeurs et l'équipe qui vous accompagne au quotidien."
+        title="À propos"
+        subtitle={`${siteConfig.company} · ${siteConfig.product} — ${siteConfig.subtitle}`}
       />
 
-      {/* Notre histoire */}
+      {/* Présentation */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-3xl">
-          <Reveal>
-          <h2 className="text-2xl font-bold text-slate-900">Notre histoire</h2>
-          <p className="mt-4 text-base leading-7 text-slate-600">
-            Fondée il y a plus de 10 ans, {siteConfig.name} est née
-            d&apos;une conviction simple&nbsp;: chaque entreprise mérite un
-            partenaire de confiance pour l&apos;accompagner dans son
-            développement numérique et stratégique.
-          </p>
-          <p className="mt-4 text-base leading-7 text-slate-600">
-            Au fil des années, nous avons développé une expertise reconnue et
-            fidélisé plus de 250 clients, des petites structures aux grands
-            groupes. Notre force&nbsp;? Une équipe pluridisciplinaire
-            passionnée, à l&apos;écoute et engagée à vos côtés.
-          </p>
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <Reveal direction="left">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-slate-900">
+                La solution tracking de {siteConfig.company}
+              </h2>
+              <p className="mt-6 leading-7 text-slate-700">
+                {siteConfig.description}
+              </p>
+              <p className="mt-4 leading-7 text-slate-700">
+                Basées à {siteConfig.address}, nos équipes assurent
+                l&apos;installation du matériel (balise GPS 4G, relais de
+                coupure moteur), la mise en service de la plateforme et
+                l&apos;accompagnement de vos gestionnaires au quotidien.
+              </p>
+              <p className="mt-4 leading-7 text-slate-700">
+                Avec trois niveaux d&apos;offre —{" "}
+                <Link
+                  href="/offres/standard"
+                  className={`font-semibold ${offers[0].theme.accentText}`}
+                >
+                  STANDARD
+                </Link>
+                ,{" "}
+                <Link
+                  href="/offres/gold"
+                  className={`font-semibold ${offers[1].theme.accentText}`}
+                >
+                  GOLD
+                </Link>{" "}
+                et{" "}
+                <Link
+                  href="/offres/premium"
+                  className={`font-semibold ${offers[2].theme.accentText}`}
+                >
+                  PREMIUM
+                </Link>{" "}
+                — {siteConfig.product} couvre tous les besoins : du simple suivi
+                essentiel jusqu&apos;à l&apos;intégration complète au système
+                d&apos;information.
+              </p>
+            </div>
           </Reveal>
 
-          {/* Statistiques */}
-          <Reveal delay={100}>
-          <dl className="mt-10 grid grid-cols-2 gap-6 rounded-2xl bg-slate-50 p-8 md:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <dd className="text-2xl font-bold text-blue-900">
-                  {stat.value}
-                </dd>
-                <dt className="mt-1 text-xs text-slate-600">{stat.label}</dt>
-              </div>
-            ))}
-          </dl>
+          <Reveal direction="right" delay={120}>
+            <Image
+              src={media.geolocation}
+              alt="Supervision géolocalisée d'une flotte de véhicules"
+              width={720}
+              height={480}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="rounded-2xl object-cover shadow-md"
+            />
           </Reveal>
         </div>
       </section>
 
-      {/* Nos valeurs */}
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
-            Nos valeurs
-          </h2>
+      {/* Nos engagements */}
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <Reveal>
+            <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900">
+              Nos engagements
+            </h2>
+          </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((value, index) => (
-              <Reveal key={value.title} delay={index * 100}>
-                <div
-                  className="h-full rounded-2xl border border-slate-200 bg-white p-6 text-center"
-                >
-                  <span className="text-4xl" aria-hidden>{value.icon}</span>
+            {reasons.map((reason, index) => (
+              <Reveal key={reason.title} delay={index * 100}>
+                <div className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <span className="text-3xl" aria-hidden>
+                    {reason.icon}
+                  </span>
                   <h3 className="mt-4 font-semibold text-slate-900">
-                    {value.title}
+                    {reason.title}
                   </h3>
                   <p className="mt-2 text-sm leading-6 text-slate-600">
-                    {value.text}
+                    {reason.text}
                   </p>
                 </div>
               </Reveal>
@@ -79,58 +105,25 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Notre équipe */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
-          Notre équipe
-        </h2>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((member, index) => (
-            <Reveal key={member.name} delay={index * 100}>
-              <div
-                className="h-full rounded-2xl border border-slate-200 p-6 text-center"
-              >
-                <span
-                  className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-900 text-xl font-bold text-white"
-                  aria-hidden
-                >
-                  {member.name
-                    .split(" ")
-                    .map((part) => part[0])
-                    .join("")}
-                </span>
-                <h3 className="mt-4 font-semibold text-slate-900">
-                  {member.name}
-                </h3>
-                <p className="mt-1 text-sm text-slate-600">{member.role}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Témoignages */}
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
-            Ils nous font confiance
+      {/* Lien vers le site groupe */}
+      <section className="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6">
+        <Reveal>
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            Découvrir l&apos;ensemble des activités {siteConfig.company}
           </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {testimonials.map((testimonial, index) => (
-              <Reveal key={testimonial.author} delay={index * 150}>
-                <TestimonialCard testimonial={testimonial} />
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Link
-              href="/contact"
-              className="inline-block rounded-lg bg-blue-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-800"
-            >
-              Rejoignez nos clients satisfaits
-            </Link>
-          </div>
-        </div>
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-600">
+            Ce site est dédié à la solution {siteConfig.product}. Retrouvez
+            l&apos;ensemble de nos métiers sur notre site principal.
+          </p>
+          <a
+            href={siteConfig.websiteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-block rounded-lg bg-blue-700 px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-blue-600"
+          >
+            Visiter {siteConfig.website}
+          </a>
+        </Reveal>
       </section>
     </>
   );
