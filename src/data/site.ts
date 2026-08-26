@@ -60,7 +60,7 @@ export const navLinks = [
 
 export const media = {
   logo: "/Ressource_site_sisbm_core/logo.png",
-  hero: "/Ressource_site_sisbm_core/hero-flotte.jpeg",
+  hero: "/autre_ressource_img/presentvehiculegemini.jpg",
   geolocation: "/Ressource_site_sisbm_core/geolocalisation.jpg",
   trackerDevice: "/Ressource_site_sisbm_core/materiel-tracker.jpeg",
   mobileApp: "/Ressource_site_sisbm_core/application-mobile.jpg",

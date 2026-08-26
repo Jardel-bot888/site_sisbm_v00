@@ -11,7 +11,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-blue-950/60 bg-gradient-to-r from-blue-900 to-slate-950 shadow-lg shadow-blue-950/30">
             <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -21,13 +21,13 @@ export default function Navbar() {
             height={40}
             className="h-10 w-auto"
           />
-          <span className="text-xl font-bold tracking-tight text-slate-900">
+          <span className="text-xl font-bold tracking-tight text-white">
             {siteConfig.name}
           </span>
         </Link>
 
         {/* Sous-titre produit */}
-        <span className="hidden items-center gap-1 text-xs font-semibold uppercase tracking-wider text-slate-500 xl:flex">
+        <span className="hidden items-center gap-1 text-xs font-semibold uppercase tracking-wider text-blue-200 xl:flex">
           <span>{siteConfig.subtitle}</span>
           <span aria-hidden>·</span>
         </span>
@@ -43,10 +43,10 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? "text-blue-900"
-                      : "text-slate-600 hover:text-blue-900"
+                      ? "bg-white/15 text-white shadow-inner"
+                      : "text-blue-100 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -57,7 +57,7 @@ export default function Navbar() {
           <li>
             <Link
               href="/contact"
-              className="rounded-lg bg-blue-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-800"
+              className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-blue-900 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50 hover:shadow-lg"
             >
               Demander un devis
             </Link>
@@ -68,7 +68,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen((open) => !open)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/15 md:hidden"
           aria-label="Ouvrir le menu"
           aria-expanded={menuOpen}
         >
@@ -98,16 +98,16 @@ export default function Navbar() {
 
       {/* Menu mobile */}
       {menuOpen && (
-        <ul className="space-y-1 border-t border-slate-200 bg-white px-4 py-3 md:hidden">
+        <ul className="space-y-1 border-t border-blue-950/60 bg-gradient-to-r from-blue-900 to-slate-950 px-4 py-3 md:hidden">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className={`block rounded-lg px-3 py-2 text-sm font-medium ${
+                className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? "bg-blue-50 text-blue-900"
-                    : "text-slate-600 hover:bg-slate-50"
+                    ? "bg-white/15 text-white"
+                    : "text-blue-100 hover:bg-white/10 hover:text-white"
                 }`}
               >
                 {link.label}
