@@ -25,6 +25,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-slate-900">
+        {/* Sans JavaScript : le contenu reste toujours visible */}
+        <noscript>
+          <style>{`.opacity-0 { opacity: 1 !important; } .translate-y-8, .translate-x-8, .-translate-x-8 { transform: none !important; }`}</style>
+        </noscript>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

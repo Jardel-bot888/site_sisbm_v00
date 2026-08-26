@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import PageHeader from "@/components/PageHeader";
+import Reveal from "@/components/Reveal";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -38,21 +39,22 @@ export default function ContactPage() {
         <div className="grid gap-12 lg:grid-cols-3">
           {/* Coordonnées */}
           <div className="space-y-6">
-            {contactItems.map((item) => (
-              <div
-                key={item.label}
-                className="flex items-start gap-4 rounded-2xl border border-slate-200 p-5"
-              >
-                <span className="text-2xl" aria-hidden>{item.icon}</span>
-                <div>
-                  <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
-                    {item.label}
-                  </h2>
-                  <p className="mt-1 text-sm leading-6 text-slate-800">
-                    {item.value}
-                  </p>
+            {contactItems.map((item, index) => (
+              <Reveal key={item.label} delay={index * 100}>
+                <div
+                  className="flex items-start gap-4 rounded-2xl border border-slate-200 p-5"
+                >
+                  <span className="text-2xl" aria-hidden>{item.icon}</span>
+                  <div>
+                    <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                      {item.label}
+                    </h2>
+                    <p className="mt-1 text-sm leading-6 text-slate-800">
+                      {item.value}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
 
             <div className="rounded-2xl bg-slate-50 p-6">
@@ -75,7 +77,7 @@ export default function ContactPage() {
           </div>
 
           {/* Formulaire */}
-          <div className="lg:col-span-2">
+          <Reveal direction="right" delay={150} className="lg:col-span-2">
             <div className="rounded-2xl border border-slate-200 p-6 sm:p-8">
               <h2 className="text-xl font-bold text-slate-900">
                 Envoyez-nous un message
@@ -85,7 +87,7 @@ export default function ContactPage() {
               </p>
               <ContactForm />
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

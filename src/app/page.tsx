@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import { services, stats, testimonials, siteConfig } from "@/data/site";
@@ -9,7 +10,7 @@ export default function Home() {
       {/* Hero */}
       <section className="bg-gradient-to-b from-blue-950 to-slate-900 text-white">
         <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
-          <div className="max-w-2xl">
+          <Reveal className="max-w-2xl">
             <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
               {siteConfig.tagline}
             </h1>
@@ -30,18 +31,20 @@ export default function Home() {
                 Nous contacter
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Statistiques */}
       <section className="border-b border-slate-200 bg-slate-50">
         <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-4 py-12 sm:px-6 md:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <dd className="text-3xl font-bold text-blue-900">{stat.value}</dd>
-              <dt className="mt-2 text-sm text-slate-600">{stat.label}</dt>
-            </div>
+          {stats.map((stat, index) => (
+            <Reveal key={stat.label} delay={index * 100}>
+              <div className="text-center">
+                <dd className="text-3xl font-bold text-blue-900">{stat.value}</dd>
+                <dt className="mt-2 text-sm text-slate-600">{stat.label}</dt>
+              </div>
+            </Reveal>
           ))}
         </dl>
       </section>
@@ -58,8 +61,10 @@ export default function Home() {
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <ServiceCard key={service.slug} service={service} />
+          {services.map((service, index) => (
+            <Reveal key={service.slug} delay={(index % 3) * 100}>
+              <ServiceCard service={service} />
+            </Reveal>
           ))}
         </div>
       </section>
@@ -68,7 +73,7 @@ export default function Home() {
       <section className="bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
+            <Reveal direction="left">
               <h2 className="text-3xl font-bold tracking-tight text-slate-900">
                 Pourquoi choisir {siteConfig.name}&nbsp;?
               </h2>
@@ -98,7 +103,8 @@ export default function Home() {
               >
                 En savoir plus sur nous
               </Link>
-            </div>
+            </Reveal>
+            <Reveal direction="right" delay={150}>
             <div className="grid gap-4 sm:grid-cols-2">
               {[
                 { icon: "🚀", title: "Réactivité", text: "Des délais courts et respectés" },
@@ -118,6 +124,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -128,14 +135,17 @@ export default function Home() {
           Ce que disent nos clients
         </h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.author} testimonial={testimonial} />
+          {testimonials.map((testimonial, index) => (
+            <Reveal key={testimonial.author} delay={index * 150}>
+              <TestimonialCard testimonial={testimonial} />
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* Appel à l'action */}
       <section className="bg-blue-900">
+        <Reveal>
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 py-14 text-center sm:px-6 md:flex-row md:text-left">
           <div>
             <h2 className="text-2xl font-bold text-white sm:text-3xl">
@@ -153,6 +163,7 @@ export default function Home() {
             Demander un devis
           </Link>
         </div>
+        </Reveal>
       </section>
     </>
   );

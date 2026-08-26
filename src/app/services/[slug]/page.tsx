@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/PageHeader";
+import Reveal from "@/components/Reveal";
 import { getService, services } from "@/data/site";
 
 type Params = { slug: string };
@@ -46,7 +47,7 @@ export default async function ServiceDetailPage({
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-3">
-          <div className="lg:col-span-2">
+          <Reveal className="lg:col-span-2">
             <nav className="mb-6 text-sm text-slate-500" aria-label="Fil d'ariane">
               <Link href="/" className="hover:text-blue-900">
                 Accueil
@@ -86,9 +87,10 @@ export default async function ServiceDetailPage({
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
           {/* Colonne latérale */}
+          <Reveal direction="right" delay={150}>
           <aside className="space-y-6">
             <div className="rounded-2xl bg-blue-900 p-6 text-white">
               <h2 className="text-lg font-bold">
@@ -125,6 +127,7 @@ export default async function ServiceDetailPage({
               </ul>
             </div>
           </aside>
+          </Reveal>
         </div>
       </section>
     </>
