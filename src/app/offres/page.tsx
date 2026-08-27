@@ -22,7 +22,7 @@ export default function OffersPage() {
 
       {/* Cartes des 3 offres */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid items-stretch gap-6 md:grid-cols-3">
           {offers.map((offer, index) => (
             <OfferCard key={offer.slug} offer={offer} delay={index * 120} />
           ))}
@@ -60,7 +60,7 @@ export default function OffersPage() {
           </p>
           <Link
             href="/contact"
-            className="mt-6 inline-block rounded-lg bg-blue-700 px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-blue-600"
+            className="mt-6 inline-block rounded-lg bg-blue-700 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/40"
           >
             Demander un devis
           </Link>

@@ -88,7 +88,7 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {reasons.map((reason, index) => (
               <Reveal key={reason.title} delay={index * 100}>
-                <div className="h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="h-full rounded-xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-100 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md">
                   <span className="text-3xl" aria-hidden>
                     {reason.icon}
                   </span>
@@ -119,7 +119,7 @@ export default function AboutPage() {
             href={siteConfig.websiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-block rounded-lg bg-blue-700 px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-blue-600"
+            className="mt-6 inline-block rounded-lg bg-blue-700 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/40"
           >
             Visiter {siteConfig.website}
           </a>

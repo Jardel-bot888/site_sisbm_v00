@@ -70,15 +70,17 @@ export default async function OfferDetailPage({
         className={`bg-gradient-to-r ${offer.theme.gradient} py-16 text-white sm:py-20`}
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/80">
-            Offre · {offer.need}
-          </p>
-          <h1 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            OFFRE {offer.title}
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-white/90 sm:text-lg">
-            {offer.tagline}
-          </p>
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/80">
+              Offre · {offer.need}
+            </p>
+            <h1 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">
+              OFFRE {offer.title}
+            </h1>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-white/90 sm:text-lg">
+              {offer.tagline}
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -131,7 +133,7 @@ export default async function OfferDetailPage({
           {/* Barre latérale */}
           <aside className="space-y-6">
             <Reveal direction="left" delay={200}>
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-100">
                 <h2 className="font-bold text-slate-900">Points clés</h2>
                 <ul className="mt-4 space-y-2 text-sm text-slate-700">
                   {offer.keyPoints.map((point) => (
@@ -148,7 +150,7 @@ export default async function OfferDetailPage({
 
             <Reveal direction="left" delay={280}>
               <div
-                className={`rounded-2xl bg-gradient-to-br ${offer.theme.gradient} p-6 text-white`}
+                className={`rounded-xl bg-gradient-to-br ${offer.theme.gradient} p-6 text-white shadow-lg`}
               >
                 <h2 className="font-bold">
                   Intéressé par l&apos;offre {offer.title} ?
@@ -168,7 +170,7 @@ export default async function OfferDetailPage({
 
             {/* Autres offres */}
             <Reveal direction="left" delay={360}>
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-100">
                 <h2 className="font-bold text-slate-900">Autres offres</h2>
                 <ul className="mt-4 space-y-3">
                   {others.map((other) => (
@@ -189,7 +191,7 @@ export default async function OfferDetailPage({
                         </span>
                         <span
                           aria-hidden
-                          className="text-slate-400 group-hover:text-slate-600"
+                          className="text-slate-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-slate-600"
                         >
                           →
                         </span>

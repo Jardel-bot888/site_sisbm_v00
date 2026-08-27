@@ -41,10 +41,13 @@ export default function ContactPage() {
           <div className="space-y-6">
             {contactItems.map((item, index) => (
               <Reveal key={item.label} delay={index * 100}>
-                <div
-                  className="flex items-start gap-4 rounded-2xl border border-slate-200 p-5"
-                >
-                  <span className="text-2xl" aria-hidden>{item.icon}</span>
+                <div className="flex items-start gap-4 rounded-xl border-t-4 border-blue-600 bg-white p-5 shadow-sm ring-1 ring-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                  <span
+                    aria-hidden
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-50 text-xl"
+                  >
+                    {item.icon}
+                  </span>
                   <div>
                     <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
                       {item.label}
@@ -57,7 +60,7 @@ export default function ContactPage() {
               </Reveal>
             ))}
 
-            <div className="rounded-2xl bg-slate-50 p-6">
+            <div className="rounded-xl bg-slate-50 p-6 ring-1 ring-slate-100">
               <h2 className="font-semibold text-slate-900">Assistance</h2>
               <dl className="mt-3 space-y-1.5 text-sm text-slate-600">
                 <div className="flex justify-between">
@@ -89,7 +92,7 @@ export default function ContactPage() {
 
           {/* Formulaire */}
           <Reveal direction="right" delay={150} className="lg:col-span-2">
-            <div className="rounded-2xl border border-slate-200 p-6 sm:p-8">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-100 sm:p-8">
               <h2 className="text-xl font-bold text-slate-900">
                 Envoyez-nous un message
               </h2>
