@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import { getOffer, offers, siteConfig, type Offer } from "@/data/site";
+import { buildMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return offers.map((offer) => ({ slug: offer.slug }));
@@ -16,10 +18,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const offer = getOffer(slug);
   if (!offer) return {};
-  return {
+  return buildMetadata({
     title: `Offre ${offer.title}`,
     description: `${offer.tagline} ${siteConfig.product} — ${offer.need}.`,
-  };
+    path: `/offres/${offer.slug}`,
+  });
 }
 
 function FeatureList({ offer }: { offer: Offer }) {
@@ -63,8 +66,27 @@ export default async function OfferDetailPage({
 
   const others = offers.filter((o) => o.slug !== offer.slug);
 
+  // Données structurées — Service (pas de tarification publique)
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${siteConfig.product} — Offre ${offer.title}`,
+    description: offer.description,
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.company,
+      url: siteConfig.websiteUrl,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Côte d'Ivoire",
+    },
+    url: `${siteConfig.websiteUrl}/offres/${offer.slug}`,
+  };
+
   return (
     <>
+      <JsonLd data={serviceLd} />
       {/* En-tête coloré de l'offre */}
       <section
         className={`bg-gradient-to-r ${offer.theme.gradient} py-16 text-white sm:py-20`}

@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { media, offers, reasons, siteConfig } from "@/data/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "À propos",
   description: `${siteConfig.company} et sa solution ${siteConfig.product} de gestion et supervision de flotte à Abidjan, Côte d'Ivoire.`,
-};
+  path: "/a-propos",
+});
 
 export default function AboutPage() {
   return (
@@ -70,6 +72,7 @@ export default function AboutPage() {
               alt="Supervision géolocalisée d'une flotte de véhicules"
               width={720}
               height={480}
+              loading="lazy"
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="rounded-2xl object-cover shadow-md"
             />

@@ -3,6 +3,14 @@ import Link from "next/link";
 import OfferCard from "@/components/OfferCard";
 import Reveal from "@/components/Reveal";
 import { media, offers, reasons, siteConfig } from "@/data/site";
+import { buildMetadata, homeTitle } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: homeTitle,
+  description: siteConfig.description,
+  path: "/",
+  absoluteTitle: true,
+});
 
 const blindSpots = [
   {
@@ -104,7 +112,8 @@ export default function HomePage() {
           src={media.hero}
           alt="Flotte de véhicules équipés du tracking SISBM CORE"
           fill
-          priority
+          preload
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover opacity-80"
         />
@@ -199,7 +208,7 @@ export default function HomePage() {
                       <Image
                         src={spot.image}
                         alt={spot.imageAlt}
-                        fill
+                         fill loading="lazy"
                         sizes="(min-width: 1280px) 20vw, (min-width: 640px) 50vw, 100vw"
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
@@ -260,7 +269,7 @@ export default function HomePage() {
                       <Image
                         src={block.image}
                         alt={block.imageAlt}
-                        fill
+                         fill loading="lazy"
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />

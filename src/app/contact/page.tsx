@@ -3,11 +3,13 @@ import ContactForm from "@/components/ContactForm";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { siteConfig } from "@/data/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description: `Contactez ${siteConfig.name} pour toute question ou demande de devis gratuit. Nous vous répondons sous 24h.`,
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const contactItems = [

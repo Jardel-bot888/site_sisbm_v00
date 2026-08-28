@@ -5,12 +5,14 @@ import OfferCard from "@/components/OfferCard";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { offers, siteConfig } from "@/data/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Nos offres",
   description:
     "Découvrez les trois offres de tracking SISBM CORE : STANDARD (tracking essentiel), GOLD (supervision automatisée) et PREMIUM (intégration au SI).",
-};
+  path: "/offres",
+});
 
 export default function OffersPage() {
   return (

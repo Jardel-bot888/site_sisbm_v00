@@ -2,16 +2,55 @@
 
 import { useState } from "react";
 
-export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+type Status = "idle" | "submitting" | "success" | "error";
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+export default function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // TODO : connecter un service d'envoi d'e-mails (Resend, Nodemailer, etc.)
-    setSubmitted(true);
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    setStatus("submitting");
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          company: data.get("company"),
+          message: data.get("message"),
+          // Piège anti-spam : champ invisible, doit rester vide
+          website: data.get("website"),
+        }),
+      });
+
+      const payload = (await response.json()) as { ok: boolean; error?: string };
+
+      if (response.ok && payload.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setError(
+          payload.error ??
+            "Une erreur est survenue. Réessayez dans quelques instants."
+        );
+        setStatus("error");
+      }
+    } catch {
+      setError(
+        "Impossible de joindre le serveur. Vérifiez votre connexion et réessayez."
+      );
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
         <span className="text-4xl" aria-hidden>
@@ -26,7 +65,10 @@ export default function ContactForm() {
         </p>
         <button
           type="button"
-          onClick={() => setSubmitted(false)}
+          onClick={() => {
+            setStatus("idle");
+            setError(null);
+          }}
           className="mt-6 rounded-lg border border-emerald-300 px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-100"
         >
           Envoyer un autre message
@@ -39,7 +81,19 @@ export default function ContactForm() {
     "w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5" noValidate={false}>
+      {/* Honeypot anti-spam : invisible pour l'utilisateur, attirant pour les bots */}
+      <div className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">Ne pas remplir ce champ</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label
@@ -53,6 +107,8 @@ export default function ContactForm() {
             name="name"
             type="text"
             required
+            minLength={2}
+            maxLength={80}
             placeholder="Jean Dupont"
             className={inputClasses}
           />
@@ -69,6 +125,7 @@ export default function ContactForm() {
             name="email"
             type="email"
             required
+            maxLength={120}
             placeholder="jean.dupont@exemple.fr"
             className={inputClasses}
           />
@@ -85,6 +142,7 @@ export default function ContactForm() {
           id="company"
           name="company"
           type="text"
+          maxLength={100}
           placeholder="Nom de votre entreprise"
           className={inputClasses}
         />
@@ -100,16 +158,29 @@ export default function ContactForm() {
           id="message"
           name="message"
           required
+          minLength={10}
+          maxLength={2000}
           rows={5}
           placeholder="Décrivez votre besoin..."
           className={inputClasses}
         />
       </div>
+
+      {status === "error" && error && (
+        <div
+          role="alert"
+          className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+        >
+          ⚠️ {error}
+        </div>
+      )}
+
       <button
         type="submit"
-        className="w-full rounded-lg bg-blue-700 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/30 sm:w-auto"
+        disabled={status === "submitting"}
+        className="w-full rounded-lg bg-blue-700 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/30 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none sm:w-auto"
       >
-        Envoyer le message
+        {status === "submitting" ? "Envoi en cours…" : "Envoyer le message"}
       </button>
     </form>
   );
