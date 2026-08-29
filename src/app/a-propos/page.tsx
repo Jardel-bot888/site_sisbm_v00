@@ -84,7 +84,7 @@ export default function AboutPage() {
       </section>
 
       {/* Nos engagements */}
-      <section className="relative py-16">
+      <section className="relative overflow-hidden py-16">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="orb absolute -left-32 top-1/2 h-64 w-64 bg-blue-500/20" style={{ animation: "float 18s ease-in-out infinite" }} />
           <div className="orb-rev absolute -right-32 top-1/2 h-56 w-56 bg-violet-500/20" style={{ animation: "float-rev 22s ease-in-out infinite" }} />

@@ -29,7 +29,7 @@ export default function ComparisonTable() {
   return (
     <Reveal>
       {/* Tableau (desktop) */}
-      <div className="hidden overflow-hidden rounded-2xl border border-white/10 shadow-sm md:block">
+      <div className="hidden overflow-hidden rounded-2xl border border-slate-200 shadow-sm dark:border-white/10 md:block">
         <table className="w-full text-sm">
           <caption className="sr-only">
             Comparatif des offres STANDARD, GOLD et PREMIUM
@@ -50,12 +50,12 @@ export default function ComparisonTable() {
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/10 bg-slate-900/60">
+          <tbody className="divide-y divide-slate-200 bg-white dark:divide-white/10 dark:bg-slate-900/60">
             {comparisonRows.map((row, index) => (
-              <tr key={row.label} className={index % 2 === 1 ? "bg-white/5" : ""}>
+              <tr key={row.label} className={index % 2 === 1 ? "bg-slate-50 dark:bg-white/5" : ""}>
                 <th
                   scope="row"
-                  className="px-6 py-3.5 text-left font-medium text-slate-200"
+                  className="px-6 py-3.5 text-left font-medium text-slate-700 dark:text-slate-200"
                 >
                   {row.label}
                 </th>
@@ -75,20 +75,20 @@ export default function ComparisonTable() {
         {columns.map(({ key, offer }) => (
           <div
             key={key}
-            className={`overflow-hidden rounded-2xl border border-white/10 ring-2 ${offer.theme.ring}`}
+            className={`overflow-hidden rounded-2xl border border-slate-200 ring-2 dark:border-white/10 ${offer.theme.ring}`}
           >
             <div
               className={`bg-gradient-to-r ${offer.theme.gradient} px-4 py-3 text-center font-extrabold tracking-wide text-white`}
             >
               {offer.title}
             </div>
-            <dl className="divide-y divide-white/10">
+            <dl className="divide-y divide-slate-200 dark:divide-white/10">
               {comparisonRows.map((row) => (
                 <div
                   key={row.label}
                   className="flex items-center justify-between gap-4 px-4 py-2.5"
                 >
-                  <dt className="text-xs text-slate-400">{row.label}</dt>
+                  <dt className="text-xs text-slate-500 dark:text-slate-400">{row.label}</dt>
                   <dd className="text-right text-sm font-medium">
                     <CellValue value={row[key]} />
                   </dd>
@@ -100,7 +100,7 @@ export default function ComparisonTable() {
       </div>
 
       {/* Légende */}
-      <p className="mt-4 text-center text-xs text-slate-400">
+      <p className="mt-4 text-center text-xs text-slate-500 dark:text-slate-400">
         ● inclus · — non inclus. Les conditions détaillées (garantie, SMS,
         maintenance) sont précisées lors de l&apos;établissement de votre devis.
       </p>

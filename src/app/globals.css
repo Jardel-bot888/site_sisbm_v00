@@ -111,6 +111,13 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
+/* Variante sombre : verre depre translucent sur fond sombre (sinon la carte
+   blanche a 70 % rend un gris terne sur le fond bleu nuit). */
+.dark .glass-light {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
 /* --- Texte dégradé animé --- */
 .text-gradient-anim {
   background: linear-gradient(110deg, #60a5fa, #a78bfa 25%, #f0abfc 50%, #60a5fa 75%, #a78bfa);
