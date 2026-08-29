@@ -78,7 +78,7 @@ export default function ContactForm() {
   }
 
   const inputClasses =
-    "w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20";
+    "w-full rounded-lg border border-white/10 bg-slate-900/60 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600/20";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5" noValidate={false}>
@@ -98,7 +98,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="mb-1.5 block text-sm font-medium text-slate-700"
+            className="mb-1.5 block text-sm font-medium text-slate-300"
           >
             Nom complet *
           </label>
@@ -116,7 +116,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="mb-1.5 block text-sm font-medium text-slate-700"
+            className="mb-1.5 block text-sm font-medium text-slate-300"
           >
             Adresse e-mail *
           </label>
@@ -134,7 +134,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="company"
-          className="mb-1.5 block text-sm font-medium text-slate-700"
+          className="mb-1.5 block text-sm font-medium text-slate-300"
         >
           Entreprise
         </label>
@@ -150,7 +150,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="mb-1.5 block text-sm font-medium text-slate-700"
+          className="mb-1.5 block text-sm font-medium text-slate-300"
         >
           Votre message *
         </label>

@@ -8,16 +8,16 @@ type OfferCardProps = {
 };
 
 const hoverRings: Record<string, string> = {
-  standard: "hover:ring-blue-200 hover:shadow-blue-400/30",
-  gold: "hover:ring-amber-200 hover:shadow-amber-400/30",
-  premium: "hover:ring-teal-200 hover:shadow-teal-400/30",
+  standard: "hover:ring-blue-400/40 hover:shadow-blue-400/30",
+  gold: "hover:ring-amber-400/40 hover:shadow-amber-400/30",
+  premium: "hover:ring-teal-400/40 hover:shadow-teal-400/30",
 };
 
 export default function OfferCard({ offer, delay = 0 }: OfferCardProps) {
   return (
     <Reveal delay={delay} className="h-full">
       <article
-        className={`flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-transparent transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${hoverRings[offer.level] ?? ""}`}
+        className={`flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-sm ring-1 ring-transparent transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${hoverRings[offer.level] ?? ""}`}
       >
         {/* En-tête coloré */}
         <div
@@ -39,18 +39,18 @@ export default function OfferCard({ offer, delay = 0 }: OfferCardProps) {
         </div>
 
         <div className="flex flex-1 flex-col p-6">
-          <p className="text-sm leading-6 text-slate-600">{offer.tagline}</p>
+          <p className="text-sm leading-6 text-slate-400">{offer.tagline}</p>
 
           <ul className="mt-5 space-y-2.5" aria-label={`Points clés de l'offre ${offer.title}`}>
             {offer.keyPoints.map((point) => (
               <li key={point} className="flex items-start gap-2 text-sm">
                 <span
                   aria-hidden
-                  className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[11px] font-bold text-emerald-700"
+                  className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-[11px] font-bold text-emerald-300"
                 >
                   ✓
                 </span>
-                <span className="text-slate-700">{point}</span>
+                <span className="text-slate-300">{point}</span>
               </li>
             ))}
           </ul>

@@ -31,20 +31,20 @@ function FeatureList({ offer }: { offer: Offer }) {
       {offer.features.map((feature) => (
         <li
           key={feature.label}
-          className="flex items-start gap-3 rounded-lg border border-slate-100 bg-white px-4 py-3"
+          className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 px-4 py-3"
         >
           <span
             aria-hidden
             className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
               feature.included
-                ? "bg-emerald-100 text-emerald-700"
-                : "bg-slate-100 text-slate-400"
+                ? "bg-emerald-500/20 text-emerald-300"
+                : "bg-white/10 text-slate-500"
             }`}
           >
             {feature.included ? "✓" : "—"}
           </span>
           <span
-            className={`text-sm ${feature.included ? "text-slate-800" : "text-slate-400 line-through"}`}
+            className={`text-sm ${feature.included ? "text-slate-200" : "text-slate-500 line-through"}`}
           >
             {feature.label}
           </span>
@@ -112,10 +112,10 @@ export default async function OfferDetailPage({
           <div className="space-y-12 lg:col-span-2">
             <Reveal>
               <div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+                <h2 className="text-2xl font-bold tracking-tight text-white">
                   À qui s&apos;adresse cette offre ?
                 </h2>
-                <p className="mt-4 leading-7 text-slate-700">
+                <p className="mt-4 leading-7 text-slate-300">
                   {offer.description}
                 </p>
               </div>
@@ -136,9 +136,9 @@ export default async function OfferDetailPage({
                 ].map(([label, value]) => (
                   <div
                     key={label}
-                    className="rounded-xl border border-slate-200 bg-slate-50 p-5"
+                    className="rounded-xl border border-white/10 bg-white/5 p-5"
                   >
-                    <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    <dt className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                       {label}
                     </dt>
                     <dd
@@ -155,9 +155,9 @@ export default async function OfferDetailPage({
           {/* Barre latérale */}
           <aside className="space-y-6">
             <Reveal direction="left" delay={200}>
-              <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-100">
-                <h2 className="font-bold text-slate-900">Points clés</h2>
-                <ul className="mt-4 space-y-2 text-sm text-slate-700">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-6 shadow-sm ring-1 ring-white/10">
+                <h2 className="font-bold text-white">Points clés</h2>
+                <ul className="mt-4 space-y-2 text-sm text-slate-300">
                   {offer.keyPoints.map((point) => (
                     <li key={point} className="flex items-start gap-2">
                       <span aria-hidden className={offer.theme.accentText}>
@@ -192,14 +192,14 @@ export default async function OfferDetailPage({
 
             {/* Autres offres */}
             <Reveal direction="left" delay={360}>
-              <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-100">
-                <h2 className="font-bold text-slate-900">Autres offres</h2>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-6 shadow-sm ring-1 ring-white/10">
+                <h2 className="font-bold text-white">Autres offres</h2>
                 <ul className="mt-4 space-y-3">
                   {others.map((other) => (
                     <li key={other.slug}>
                       <Link
                         href={`/offres/${other.slug}`}
-                        className="group flex items-center justify-between gap-3 rounded-lg border border-slate-100 px-4 py-3 transition-colors hover:border-slate-300"
+                        className="group flex items-center justify-between gap-3 rounded-lg border border-white/10 px-4 py-3 transition-colors hover:border-white/20"
                       >
                         <span>
                           <span
@@ -207,13 +207,13 @@ export default async function OfferDetailPage({
                           >
                             {other.title}
                           </span>
-                          <span className="block text-xs text-slate-500">
+                          <span className="block text-xs text-slate-400">
                             {other.need}
                           </span>
                         </span>
                         <span
                           aria-hidden
-                          className="text-slate-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-slate-600"
+                          className="text-slate-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-slate-200"
                         >
                           →
                         </span>

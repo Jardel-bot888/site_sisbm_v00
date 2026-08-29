@@ -126,7 +126,7 @@ export default function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-300">
               {siteConfig.name} · {siteConfig.subtitle}
             </p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl text-gradient-anim">
               {siteConfig.heroTitle}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
@@ -184,16 +184,16 @@ export default function HomePage() {
 
 
       {/* ============ COUTS CACHES / AVEUGLEMENT OPERATIONNEL ============ */}
-      <section className="border-y border-slate-100 bg-white py-16 sm:py-20">
+      <section className="relative border-y border-white/10 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
-            <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-red-600">
+            <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-red-400">
               Les pertes cachées
             </p>
-            <h2 className="mx-auto mt-4 max-w-3xl text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mx-auto mt-4 max-w-3xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
               L&apos;aveuglement opérationnel a un coût direct sur votre rentabilité.
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-7 text-slate-600">
+            <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-7 text-slate-400">
               Le manque de visibilité sur vos flottes, vos stocks de carburant et vos équipes terrain constitue la principale source de pertes opérationnelles.
             </p>
           </Reveal>
@@ -201,7 +201,7 @@ export default function HomePage() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {blindSpots.map((spot, index) => (
               <Reveal key={spot.title} delay={index * 100} className="h-full">
-                <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-white/5 shadow-sm ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                   <div className="border-t-4 border-red-500" aria-hidden />
                   {spot.image ? (
                     <div className="relative aspect-[4/3] overflow-hidden">
@@ -219,11 +219,11 @@ export default function HomePage() {
                     </div>
                   )}
                   <div className="flex flex-1 flex-col p-5">
-                    <h3 className="font-bold leading-snug text-slate-900">{spot.title}</h3>
+                    <h3 className="font-bold leading-snug text-white">{spot.title}</h3>
                   <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-400">Ce qui se passe :</p>
                   <ul className="mt-2 space-y-1.5">
                     {spot.issues.map((issue) => (
-                      <li key={issue} className="flex items-start gap-2 text-sm text-slate-700">
+                      <li key={issue} className="flex items-start gap-2 text-sm text-slate-300">
                         <span aria-hidden className="text-red-400">
                           •
                         </span>
@@ -232,11 +232,11 @@ export default function HomePage() {
                     ))}
                   </ul>
                   <div className="mt-auto pt-4">
-                    <p className="rounded-lg bg-red-50 p-3">
-                      <span className="block text-sm font-extrabold uppercase tracking-wide text-red-700">
+                    <p className="rounded-lg bg-red-500/10 p-3">
+                      <span className="block text-sm font-extrabold uppercase tracking-wide text-red-300">
                         {spot.costLabel}
                       </span>
-                      <span className="mt-0.5 block text-xs text-red-600">{spot.costText}</span>
+                      <span className="mt-0.5 block text-xs text-red-400">{spot.costText}</span>
                     </p>
                   </div>
                   </div>
@@ -248,13 +248,13 @@ export default function HomePage() {
       </section>
 
             {/* ============ PROBLEMES -> SOLUTIONS ============ */}
-      <section className="border-t border-slate-100 bg-white py-16 sm:py-20">
+      <section className="relative border-t border-white/10 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
               C&apos;est pour cela que nous développons des technologies clé en main pour piloter votre activité.
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-7 text-slate-600">
+            <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-7 text-slate-400">
               Alliez technologie et accompagnement pour éliminer les coûts cachés, protéger vos équipes et maximiser votre productivité.
             </p>
           </Reveal>
@@ -262,8 +262,8 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {solutionBlocks.map((block, index) => (
               <Reveal key={block.title} delay={index * 100} className="h-full">
-                <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-                  <div aria-hidden className="border-t-4 border-emerald-600" />
+                <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-white/5 shadow-sm ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
+                  <div aria-hidden className="border-t-4 border-emerald-500" />
                   <div className="relative aspect-[4/3] overflow-hidden">
                     {block.image ? (
                       <Image
@@ -281,23 +281,23 @@ export default function HomePage() {
                   </div>
 
                   <div className="flex flex-1 flex-col p-5">
-                    <h3 className="font-bold leading-snug text-slate-900">{block.title}</h3>
+                    <h3 className="font-bold leading-snug text-white">{block.title}</h3>
 
                     <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-400">
                       Problèmes traités
                     </p>
-                    <ul className="mt-2 space-y-1.5 rounded-lg bg-slate-50 p-3">
+                    <ul className="mt-2 space-y-1.5 rounded-lg bg-slate-900/60 p-3">
                       {block.problems.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
-                          <span aria-hidden className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                        <li key={item} className="flex items-start gap-2 text-sm text-slate-300">
+                          <span aria-hidden className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500" />
                           {item}
                         </li>
                       ))}
                     </ul>
 
                     <div className="mt-auto pt-4">
-                      <div className="rounded-lg bg-emerald-50 p-3">
-                        <span className="block text-xs font-semibold uppercase tracking-wider text-emerald-700">
+                      <div className="rounded-lg bg-emerald-500/10 p-3">
+                        <span className="block text-xs font-semibold uppercase tracking-wider text-emerald-300">
                           Résultats obtenus
                         </span>
                         <ul className="mt-2 space-y-2">
@@ -305,11 +305,11 @@ export default function HomePage() {
                             <li key={item} className="flex items-start gap-2 text-sm">
                               <span
                                 aria-hidden
-                                className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-200 text-[11px] font-bold text-emerald-800"
+                                className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/30 text-[11px] font-bold text-emerald-200"
                               >
                                 ✓
                               </span>
-                              <span className="font-medium text-emerald-900">{item}</span>
+                              <span className="font-medium text-emerald-300">{item}</span>
                             </li>
                           ))}
                         </ul>
@@ -322,7 +322,7 @@ export default function HomePage() {
           </div>
 
           <Reveal delay={350}>
-            <p className="mt-10 text-center text-sm italic text-slate-500">
+            <p className="mt-10 text-center text-sm italic text-slate-400">
               <span aria-hidden>💡</span>
               <span className="ml-1">
                 Exemple d&apos;utilisation : un opérateur de transport utilise les vidéos pour clarifier les litiges et responsabiliser les conducteurs.
@@ -336,11 +336,11 @@ export default function HomePage() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
-            <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-blue-600">Nos solutions</p>
-            <h2 className="mt-4 text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">Nos solutions</p>
+            <h2 className="mt-4 text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Présentation des offres
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-7 text-slate-600">
+            <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-7 text-slate-400">
               Tracteurs, camions, engins ou flottes légères : choisissez le niveau de pilotage adapté à votre activité.
             </p>
           </Reveal>
@@ -352,7 +352,7 @@ export default function HomePage() {
           </div>
 
           <Reveal delay={200}>
-            <p className="mt-8 text-center text-sm italic text-slate-500">
+            <p className="mt-8 text-center text-sm italic text-slate-400">
               Chaque offre inclut l&apos;installation du matériel et la formation à la plateforme par nos équipes.
             </p>
           </Reveal>
@@ -360,10 +360,10 @@ export default function HomePage() {
       </section>
 
       {/* ============ POURQUOI SISBM CORE ============ */}
-      <section className="bg-slate-50 py-16 sm:py-20">
+      <section className="bg-white/5 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Pourquoi choisir SISBM CORE ?
             </h2>
           </Reveal>
@@ -371,12 +371,12 @@ export default function HomePage() {
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {reasons.map((reason, index) => (
               <Reveal key={reason.title} delay={index * 100} className="h-full">
-                <article className="h-full rounded-xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md">
+                <article className="h-full rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-md">
                   <span aria-hidden className="block text-3xl">
                     {reason.icon}
                   </span>
-                  <h3 className="mt-3 font-bold text-slate-900">{reason.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{reason.text}</p>
+                  <h3 className="mt-3 font-bold text-white">{reason.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-400">{reason.text}</p>
                 </article>
               </Reveal>
             ))}
@@ -393,7 +393,7 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <figcaption className="mt-3 text-center text-sm text-slate-500">
+              <figcaption className="mt-3 text-center text-sm text-slate-400">
                 Balise GPS et relais de coupure moteur, installés par nos techniciens.
               </figcaption>
             </figure>
@@ -407,7 +407,7 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <figcaption className="mt-3 text-center text-sm text-slate-500">
+              <figcaption className="mt-3 text-center text-sm text-slate-400">
                 Votre flotte dans la poche : suivi en temps réel depuis votre mobile.
               </figcaption>
             </figure>
@@ -441,7 +441,7 @@ export default function HomePage() {
           <Reveal delay={150}>
             <Link
               href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-8 py-3.5 font-semibold shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-500/40"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-3.5 font-semibold shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-500/40"
             >
               Demander une démonstration gratuite
             </Link>

@@ -7,8 +7,8 @@ import { media, offers, reasons, siteConfig } from "@/data/site";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "À propos",
-  description: `${siteConfig.company} et sa solution ${siteConfig.product} de gestion et supervision de flotte à Abidjan, Côte d'Ivoire.`,
+  title: "A propos",
+  description: `${siteConfig.company} et sa solution ${siteConfig.product} de gestion et supervision de flotte a Abidjan, Cote d'Ivoire.`,
   path: "/a-propos",
 });
 
@@ -16,89 +16,96 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        title="À propos"
-        subtitle={`${siteConfig.company} · ${siteConfig.product} — ${siteConfig.subtitle}`}
+        title="A propos"
+        subtitle={`${siteConfig.company} - ${siteConfig.product} - ${siteConfig.subtitle}`}
       />
 
-      {/* Présentation */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      {/* Presentation */}
+      <section className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal direction="left">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-slate-900">
+              <h2 className="text-3xl font-bold tracking-tight text-white">
                 La solution tracking de {siteConfig.company}
               </h2>
-              <p className="mt-6 leading-7 text-slate-700">
+              <p className="mt-6 leading-7 text-slate-300">
                 {siteConfig.description}
               </p>
-              <p className="mt-4 leading-7 text-slate-700">
-                Basées à {siteConfig.address}, nos équipes assurent
-                l&apos;installation du matériel (balise GPS 4G, relais de
+              <p className="mt-4 leading-7 text-slate-300">
+                Basees a {siteConfig.address}, nos equipes assurent
+                linstallation du materiel (balise GPS 4G, relais de
                 coupure moteur), la mise en service de la plateforme et
-                l&apos;accompagnement de vos gestionnaires au quotidien.
+                laccompagnement de vos gestionnaires au quotidien.
               </p>
-              <p className="mt-4 leading-7 text-slate-700">
-                Avec trois niveaux d&apos;offre —{" "}
+              <p className="mt-4 leading-7 text-slate-300">
+                Avec trois niveaux doffre -
                 <Link
                   href="/offres/standard"
                   className={`font-semibold ${offers[0].theme.accentText}`}
                 >
                   STANDARD
                 </Link>
-                ,{" "}
+                ,
                 <Link
                   href="/offres/gold"
                   className={`font-semibold ${offers[1].theme.accentText}`}
                 >
                   GOLD
-                </Link>{" "}
-                et{" "}
+                </Link>
+                et
                 <Link
                   href="/offres/premium"
                   className={`font-semibold ${offers[2].theme.accentText}`}
                 >
                   PREMIUM
-                </Link>{" "}
-                — {siteConfig.product} couvre tous les besoins : du simple suivi
-                essentiel jusqu&apos;à l&apos;intégration complète au système
-                d&apos;information.
+                </Link>
+                - {siteConfig.product} couvre tous les besoins : du simple suivi
+                essentiel jusqua lintegration complete au systeme
+                dinformation.
               </p>
             </div>
           </Reveal>
 
           <Reveal direction="right" delay={120}>
-            <Image
-              src={media.geolocation}
-              alt="Supervision géolocalisée d'une flotte de véhicules"
-              width={720}
-              height={480}
-              loading="lazy"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="rounded-2xl object-cover shadow-md"
-            />
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-500/20 via-violet-500/15 to-cyan-500/20 blur-2xl" />
+              <Image
+                src={media.geolocation}
+                alt="Supervision geolocalisee dune flotte de vehicules"
+                width={720}
+                height={480}
+                loading="lazy"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="relative rounded-2xl object-cover shadow-2xl ring-1 ring-white/10"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
 
       {/* Nos engagements */}
-      <section className="bg-slate-50 py-16">
+      <section className="relative py-16">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="orb absolute -left-32 top-1/2 h-64 w-64 bg-blue-500/20" style={{ animation: "float 18s ease-in-out infinite" }} />
+          <div className="orb-rev absolute -right-32 top-1/2 h-56 w-56 bg-violet-500/20" style={{ animation: "float-rev 22s ease-in-out infinite" }} />
+        </div>
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-white">
               Nos engagements
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {reasons.map((reason, index) => (
               <Reveal key={reason.title} delay={index * 100}>
-                <div className="h-full rounded-xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-100 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md">
+                <div className="glass-light group h-full rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-300/40 hover:shadow-lg hover:shadow-blue-500/20">
                   <span className="text-3xl" aria-hidden>
                     {reason.icon}
                   </span>
-                  <h3 className="mt-4 font-semibold text-slate-900">
+                  <h3 className="mt-4 font-semibold text-white">
                     {reason.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                  <p className="mt-2 text-sm leading-6 text-slate-400">
                     {reason.text}
                   </p>
                 </div>
@@ -111,20 +118,21 @@ export default function AboutPage() {
       {/* Lien vers le site groupe */}
       <section className="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6">
         <Reveal>
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-            Découvrir l&apos;ensemble des activités {siteConfig.company}
+          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            Decouvrir lensemble des activites {siteConfig.company}
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-600">
-            Ce site est dédié à la solution {siteConfig.product}. Retrouvez
-            l&apos;ensemble de nos métiers sur notre site principal.
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-400">
+            Ce site est dedie a la solution {siteConfig.product}. Retrouvez
+            lensemble de nos metiers sur notre site principal.
           </p>
           <a
             href={siteConfig.websiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-block rounded-lg bg-blue-700 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/40"
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/40"
           >
             Visiter {siteConfig.website}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9-9"/><path d="M7 7h10v10"/></svg>
           </a>
         </Reveal>
       </section>
