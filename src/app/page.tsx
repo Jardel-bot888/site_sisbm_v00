@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import OfferCard from "@/components/OfferCard";
 import Reveal from "@/components/Reveal";
-import { media, offers, reasons, siteConfig } from "@/data/site";
+import { media, offers, platformFeatures, reasons, siteConfig } from "@/data/site";
 import { buildMetadata, homeTitle } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -449,51 +449,36 @@ export default function HomePage() {
                   Un aperçu de SISBM CORE
                 </h2>
                 <p className="mt-5 leading-7 text-slate-500 dark:text-slate-400">
-                  Géolocalisation, historique, alertes et rapports : pilotez
+                  Suivi GPS en temps réel, automatisation des contrôles, gestion
+                  proactive des risques et analyse des événements : pilotez
                   votre flotte depuis une seule plateforme.
                 </p>
 
-                {/* Points clés : petites lignes discrètes */}
+                {/* Points clés : modules de la plateforme */}
                 <ul className="mt-7 space-y-4">
-                  <li className="flex items-start gap-3">
-                    <span aria-hidden className="mt-0.5 text-lg">📍</span>
-                    <span>
-                      <span className="font-semibold text-slate-800 dark:text-slate-100">
-                        Géolocalisation temps réel
+                  {platformFeatures.map((feature) => (
+                    <li key={feature.title} className="flex items-start gap-3">
+                      <span aria-hidden className="mt-0.5 text-lg">
+                        {feature.icon}
                       </span>
-                      <span className="block text-sm leading-6 text-slate-500 dark:text-slate-400">
-                        Position haute précision et historique des trajets.
+                      <span>
+                        <span className="font-semibold text-slate-800 dark:text-slate-100">
+                          {feature.title}
+                        </span>
+                        <span className="block text-sm leading-6 text-slate-500 dark:text-slate-400">
+                          {feature.description}
+                        </span>
                       </span>
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span aria-hidden className="mt-0.5 text-lg">📊</span>
-                    <span>
-                      <span className="font-semibold text-slate-800 dark:text-slate-100">
-                        Tableau de bord KPI
-                      </span>
-                      <span className="block text-sm leading-6 text-slate-500 dark:text-slate-400">
-                        Indicateurs clés et supervision automatisée.
-                      </span>
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span aria-hidden className="mt-0.5 text-lg">📄</span>
-                    <span>
-                      <span className="font-semibold text-slate-800 dark:text-slate-100">
-                        Rapports PDF / Excel
-                      </span>
-                      <span className="block text-sm leading-6 text-slate-500 dark:text-slate-400">
-                        Exportez vos rapports d&apos;activité en un clic.
-                      </span>
-                    </span>
-                  </li>
+                    </li>
+                  ))}
                 </ul>
 
-                {/* Texte à venir (placeholder) */}
-                <p className="mt-7 border-l-2 border-blue-400/40 pl-4 text-sm italic leading-6 text-slate-400 dark:text-slate-500">
-                  La plateforme SISBM CORE centralise géolocalisation, alertes
-                  et rapports. (Texte à venir.)
+                {/* Positionnement issu de la documentation produit */}
+                <p className="mt-7 border-l-2 border-blue-400/40 pl-4 text-sm italic leading-6 text-slate-500 dark:text-slate-400">
+                  Bien plus qu&apos;une simple géolocalisation : SISBM CORE automatise
+                  vos contrôles, sécurise vos véhicules et vous donne une vision
+                  permanente de votre flotte. Chaque événement déclenche les bonnes
+                  actions, automatiquement.
                 </p>
               </div>
             </Reveal>

@@ -220,6 +220,43 @@ export const reasons = [
 ];
 
 // ------------------------------------------------------------
+// Modules de la plateforme (section "Un aperçu de SISBM CORE")
+// ------------------------------------------------------------
+
+export const platformFeatures = [
+  {
+    icon: "📍",
+    title: "Tracking GPS intelligent",
+    description: "Position temps réel, historique détaillé des trajets et relecture des déplacements.",
+  },
+  {
+    icon: "🗺️",
+    title: "Zones autorisées",
+    description: "Géofences illimitées, entrées et sorties détectées, scénarios de sécurité automatiques.",
+  },
+  {
+    icon: "🛑",
+    title: "Vitesse maîtrisée",
+    description: "Seuils de vitesse personnalisés, excès détectés et alertés immédiatement.",
+  },
+  {
+    icon: "⏰",
+    title: "Horaires d'utilisation",
+    description: "Plages autorisées configurées, utilisations hors service signalées.",
+  },
+  {
+    icon: "🔔",
+    title: "Alertes centralisées",
+    description: "E-mail, SMS, WhatsApp : les incidents critiques remontent en temps réel.",
+  },
+  {
+    icon: "📊",
+    title: "Tableaux de bord KPI",
+    description: "Indicateurs exploitation, sécurité et maintenance, export PDF / Excel et rapports automatiques.",
+  },
+];
+
+// ------------------------------------------------------------
 // Tableau comparatif des trois offres (sans tarification publique)
 // ------------------------------------------------------------
 
