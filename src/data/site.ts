@@ -62,8 +62,8 @@ export const media = {
   logo: "/Ressource_site_sisbm_core/logo.png",
   hero: "/autre_ressource_img/presentvehiculegemini.jpg",
   geolocation: "/Ressource_site_sisbm_core/geolocalisation.jpg",
-  trackerDevice: "/Ressource_site_sisbm_core/materiel-tracker.jpeg",
-  mobileApp: "/Ressource_site_sisbm_core/application-mobile.jpg",
+  trackerDevice: "/visuels_redim/materiel-tracker.jpg",
+  mobileApp: "/visuels_redim/application-mobile.jpg",
   platformScreenshot: "/autre_ressource_img/visu_sisbmcore_Image_ma5.jpg",
 };
 

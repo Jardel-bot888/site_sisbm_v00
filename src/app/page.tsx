@@ -387,11 +387,11 @@ export default function HomePage() {
               <Image
                 src={media.trackerDevice}
                 alt="Matériel installé : balise GPS et relais de coupure moteur"
-                width={607}
-                height={1080}
+                width={540}
+                height={720}
                 loading="lazy"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="h-auto w-full rounded-xl shadow-md"
+                sizes="(min-width: 640px) 22rem, 100vw"
+                className="mx-auto h-auto w-full max-w-[22rem] rounded-xl shadow-md"
               />
               <figcaption className="mt-3 text-center text-sm text-slate-500 dark:text-slate-400">
                 Balise GPS et relais de coupure moteur, installés par nos techniciens.
@@ -401,11 +401,11 @@ export default function HomePage() {
               <Image
                 src={media.mobileApp}
                 alt="Suivi de la flotte depuis l'application mobile"
-                width={736}
-                height={1104}
+                width={540}
+                height={720}
                 loading="lazy"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="h-auto w-full rounded-xl shadow-md"
+                sizes="(min-width: 640px) 22rem, 100vw"
+                className="mx-auto h-auto w-full max-w-[22rem] rounded-xl shadow-md"
               />
               <figcaption className="mt-3 text-center text-sm text-slate-500 dark:text-slate-400">
                 Votre flotte dans la poche : suivi en temps réel depuis votre mobile.
@@ -416,79 +416,86 @@ export default function HomePage() {
       </section>
 
       {/* ============ APERÇU PLATEFORME ============ */}
-      <section className="py-16 sm:py-20">
+      <section className="relative overflow-x-clip py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <Reveal>
-            <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">
-              La plateforme
-            </p>
-            <h2 className="mt-4 text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-              Un aperçu de SISBM CORE
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-7 text-slate-500 dark:text-slate-400">
-              Géolocalisation, historique, alertes et rapports : pilotez
-              votre flotte depuis une seule plateforme.
-            </p>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <figure className="mt-12">
-              <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-slate-200 dark:ring-white/10">
-                <Image
-                  src={media.platformScreenshot}
-                  alt="Aperçu de la plateforme SISBM CORE : tableau de bord de supervision de flotte"
-                  width={1376}
-                  height={768}
-                  loading="lazy"
-                  sizes="(min-width: 1024px) 80vw, 100vw"
-                  className="h-auto w-full"
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <Reveal direction="left" delay={120}>
+              <div className="relative lg:-ml-6">
+                {/* Halo doux derrière l'image */}
+                <div
+                  aria-hidden
+                  className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-blue-500/20 via-violet-500/15 to-cyan-500/20 blur-2xl"
                 />
+                <figure className="group relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-slate-200 transition-transform duration-300 group-hover:-translate-y-1 dark:ring-white/10 dark:hover:shadow-blue-500/20">
+                  <Image
+                    src={media.platformScreenshot}
+                    alt="Aperçu de la plateforme SISBM CORE : tableau de bord de supervision de flotte"
+                    width={1376}
+                    height={768}
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="h-auto w-full"
+                  />
+                </figure>
               </div>
-            </figure>
-          </Reveal>
+            </Reveal>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            <Reveal delay={160}>
-              <article className="h-full rounded-xl border border-slate-200 bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-md dark:border-white/10 dark:bg-white/5">
-                <span aria-hidden className="block text-3xl">
-                  📍
-                </span>
-                <h3 className="mt-3 font-bold text-slate-900 dark:text-white">
-                  Géolocalisation temps réel
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
-                  Position haute précision et historique des trajets,
-                  accessibles à tout moment.
+            <Reveal direction="right">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">
+                  La plateforme
                 </p>
-              </article>
-            </Reveal>
-            <Reveal delay={260}>
-              <article className="h-full rounded-xl border border-slate-200 bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-md dark:border-white/10 dark:bg-white/5">
-                <span aria-hidden className="block text-3xl">
-                  📊
-                </span>
-                <h3 className="mt-3 font-bold text-slate-900 dark:text-white">
-                  Tableau de bord KPI
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
-                  Indicateurs clés et supervision automatisée pour piloter
-                  votre flotte au quotidien.
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+                  Un aperçu de SISBM CORE
+                </h2>
+                <p className="mt-5 leading-7 text-slate-500 dark:text-slate-400">
+                  Géolocalisation, historique, alertes et rapports : pilotez
+                  votre flotte depuis une seule plateforme.
                 </p>
-              </article>
-            </Reveal>
-            <Reveal delay={360}>
-              <article className="h-full rounded-xl border border-slate-200 bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-md dark:border-white/10 dark:bg-white/5">
-                <span aria-hidden className="block text-3xl">
-                  📄
-                </span>
-                <h3 className="mt-3 font-bold text-slate-900 dark:text-white">
-                  Rapports PDF / Excel
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
-                  Exportez vos rapports d&apos;activité pour votre gestion
-                  et votre comptabilité.
+
+                {/* Points clés : petites lignes discrètes */}
+                <ul className="mt-7 space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span aria-hidden className="mt-0.5 text-lg">📍</span>
+                    <span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-100">
+                        Géolocalisation temps réel
+                      </span>
+                      <span className="block text-sm leading-6 text-slate-500 dark:text-slate-400">
+                        Position haute précision et historique des trajets.
+                      </span>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span aria-hidden className="mt-0.5 text-lg">📊</span>
+                    <span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-100">
+                        Tableau de bord KPI
+                      </span>
+                      <span className="block text-sm leading-6 text-slate-500 dark:text-slate-400">
+                        Indicateurs clés et supervision automatisée.
+                      </span>
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span aria-hidden className="mt-0.5 text-lg">📄</span>
+                    <span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-100">
+                        Rapports PDF / Excel
+                      </span>
+                      <span className="block text-sm leading-6 text-slate-500 dark:text-slate-400">
+                        Exportez vos rapports d&apos;activité en un clic.
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+
+                {/* Texte à venir (placeholder) */}
+                <p className="mt-7 border-l-2 border-blue-400/40 pl-4 text-sm italic leading-6 text-slate-400 dark:text-slate-500">
+                  La plateforme SISBM CORE centralise géolocalisation, alertes
+                  et rapports. (Texte à venir.)
                 </p>
-              </article>
+              </div>
             </Reveal>
           </div>
         </div>
