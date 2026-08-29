@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
@@ -25,19 +25,19 @@ export default function AboutPage() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal direction="left">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-white">
+              <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
                 La solution tracking de {siteConfig.company}
               </h2>
-              <p className="mt-6 leading-7 text-slate-300">
+              <p className="mt-6 leading-7 text-slate-600 dark:text-slate-300">
                 {siteConfig.description}
               </p>
-              <p className="mt-4 leading-7 text-slate-300">
+              <p className="mt-4 leading-7 text-slate-600 dark:text-slate-300">
                 Basees a {siteConfig.address}, nos equipes assurent
                 linstallation du materiel (balise GPS 4G, relais de
                 coupure moteur), la mise en service de la plateforme et
                 laccompagnement de vos gestionnaires au quotidien.
               </p>
-              <p className="mt-4 leading-7 text-slate-300">
+              <p className="mt-4 leading-7 text-slate-600 dark:text-slate-300">
                 Avec trois niveaux doffre -
                 <Link
                   href="/offres/standard"
@@ -76,7 +76,7 @@ export default function AboutPage() {
                 height={480}
                 loading="lazy"
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="relative rounded-2xl object-cover shadow-2xl ring-1 ring-white/10"
+                className="relative rounded-2xl object-cover shadow-2xl ring-1 ring-slate-200 dark:ring-white/10"
               />
             </div>
           </Reveal>
@@ -91,7 +91,7 @@ export default function AboutPage() {
         </div>
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="text-center text-3xl font-bold tracking-tight text-white">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
               Nos engagements
             </h2>
           </Reveal>
@@ -102,10 +102,10 @@ export default function AboutPage() {
                   <span className="text-3xl" aria-hidden>
                     {reason.icon}
                   </span>
-                  <h3 className="mt-4 font-semibold text-white">
+                  <h3 className="mt-4 font-semibold text-slate-900 dark:text-white">
                     {reason.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">
+                  <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
                     {reason.text}
                   </p>
                 </div>
@@ -118,10 +118,10 @@ export default function AboutPage() {
       {/* Lien vers le site groupe */}
       <section className="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6">
         <Reveal>
-          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
             Decouvrir lensemble des activites {siteConfig.company}
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-400">
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-500 dark:text-slate-400">
             Ce site est dedie a la solution {siteConfig.product}. Retrouvez
             lensemble de nos metiers sur notre site principal.
           </p>

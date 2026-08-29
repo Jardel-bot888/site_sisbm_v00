@@ -10,19 +10,19 @@ const columns = [
 function CellValue({ value }: { value: string }) {
   if (value === "●") {
     return (
-      <span className="font-bold text-emerald-400" aria-label="Inclus">
+      <span className="font-bold text-emerald-600 dark:text-emerald-400" aria-label="Inclus">
         ●
       </span>
     );
   }
   if (value === "—") {
     return (
-      <span className="text-slate-300" aria-label="Non inclus">
+      <span className="text-slate-400 dark:text-slate-300" aria-label="Non inclus">
         —
       </span>
     );
   }
-  return <span className="text-slate-300">{value}</span>;
+  return <span className="text-slate-600 dark:text-slate-300">{value}</span>;
 }
 
 export default function ComparisonTable() {

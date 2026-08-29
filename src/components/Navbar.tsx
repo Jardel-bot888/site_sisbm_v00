@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navLinks, media, siteConfig } from "@/data/site";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -54,7 +55,8 @@ export default function Navbar() {
               </li>
             );
           })}
-          <li>
+          <li className="flex items-center gap-2">
+            <ThemeToggle />
             <Link
               href="/contact"
               className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-blue-900 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50 hover:shadow-lg"
@@ -64,8 +66,10 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Bouton menu mobile */}
-        <button
+        {/* Bouton thème + menu mobile */}
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
           type="button"
           onClick={() => setMenuOpen((open) => !open)}
           className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/15 md:hidden"
@@ -93,7 +97,8 @@ export default function Navbar() {
               />
             )}
           </svg>
-        </button>
+          </button>
+        </div>
       </nav>
 
       {/* Menu mobile */}

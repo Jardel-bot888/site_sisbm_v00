@@ -52,14 +52,14 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
+      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 dark:border-emerald-500/30 dark:bg-emerald-500/10 p-8 text-center">
         <span className="text-4xl" aria-hidden>
           ✅
         </span>
-        <h2 className="mt-4 text-lg font-semibold text-emerald-900">
+        <h2 className="mt-4 text-lg font-semibold text-emerald-900 dark:text-emerald-200">
           Message envoyé !
         </h2>
-        <p className="mt-2 text-sm text-emerald-800">
+        <p className="mt-2 text-sm text-emerald-800 dark:text-emerald-300">
           Merci pour votre message. Nous vous répondrons dans les plus brefs
           délais.
         </p>
@@ -69,7 +69,7 @@ export default function ContactForm() {
             setStatus("idle");
             setError(null);
           }}
-          className="mt-6 rounded-lg border border-emerald-300 px-4 py-2 text-sm font-semibold text-emerald-900 hover:bg-emerald-100"
+          className="mt-6 rounded-lg border border-emerald-300 px-4 py-2 text-sm font-semibold text-emerald-900 dark:text-emerald-200 hover:bg-emerald-100"
         >
           Envoyer un autre message
         </button>
@@ -78,7 +78,7 @@ export default function ContactForm() {
   }
 
   const inputClasses =
-    "w-full rounded-lg border border-white/10 bg-slate-900/60 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600/20";
+    "w-full rounded-lg border border-slate-300 dark:border-white/10 bg-white dark:bg-slate-900/60 px-4 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600/20";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5" noValidate={false}>
@@ -98,7 +98,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="name"
-            className="mb-1.5 block text-sm font-medium text-slate-300"
+            className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300"
           >
             Nom complet *
           </label>
@@ -116,7 +116,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="mb-1.5 block text-sm font-medium text-slate-300"
+            className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300"
           >
             Adresse e-mail *
           </label>
@@ -134,7 +134,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="company"
-          className="mb-1.5 block text-sm font-medium text-slate-300"
+          className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300"
         >
           Entreprise
         </label>
@@ -150,7 +150,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="mb-1.5 block text-sm font-medium text-slate-300"
+          className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300"
         >
           Votre message *
         </label>
@@ -169,7 +169,7 @@ export default function ContactForm() {
       {status === "error" && error && (
         <div
           role="alert"
-          className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+          className="rounded-lg border border-red-200 bg-red-50 dark:border-red-500/30 dark:bg-red-500/10 px-4 py-3 text-sm text-red-800 dark:text-red-300"
         >
           ⚠️ {error}
         </div>

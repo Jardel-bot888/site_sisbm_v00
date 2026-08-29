@@ -32,13 +32,13 @@ export default function OffersPage() {
       </section>
 
       {/* Tableau comparatif */}
-      <section className="bg-white/5 py-16">
+      <section className="bg-slate-50 py-16 dark:bg-white/5">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="text-center text-3xl font-bold tracking-tight text-white">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
               Quelle offre correspond à votre niveau de pilotage ?
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-7 text-slate-400">
+            <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-7 text-slate-600 dark:text-slate-400">
               Comparez en un coup d&apos;œil les fonctionnalités des offres
               STANDARD, GOLD et PREMIUM.
             </p>
@@ -52,10 +52,10 @@ export default function OffersPage() {
       {/* CTA */}
       <section className="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6">
         <Reveal>
-          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
             Besoin d&apos;aide pour choisir ?
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-400">
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-500 dark:text-slate-400">
             Décrivez-nous votre flotte et vos besoins : nous vous orientons vers
             le niveau d&apos;offre le plus pertinent et vous adressons un devis
             personnalisé.

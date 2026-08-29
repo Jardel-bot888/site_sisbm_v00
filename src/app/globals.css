@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Theme sombre pilote par la classe .dark sur <html> (bascule ThemeToggle) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --font-sans: var(--font-geist-sans);
 }
@@ -144,7 +147,7 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #e2e8f0;
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
@@ -152,6 +155,9 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
 }
 
 /* --- Section reveal --- */
