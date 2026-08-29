@@ -384,33 +384,112 @@ export default function HomePage() {
 
           <div className="mt-14 grid gap-8 lg:grid-cols-2">
             <figure>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md">
-                <Image
-                  src={media.trackerDevice}
-                  alt="Matériel installé : balise GPS et relais de coupure moteur"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src={media.trackerDevice}
+                alt="Matériel installé : balise GPS et relais de coupure moteur"
+                width={607}
+                height={1080}
+                loading="lazy"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="h-auto w-full rounded-xl shadow-md"
+              />
               <figcaption className="mt-3 text-center text-sm text-slate-500 dark:text-slate-400">
                 Balise GPS et relais de coupure moteur, installés par nos techniciens.
               </figcaption>
             </figure>
             <figure>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md">
-                <Image
-                  src={media.mobileApp}
-                  alt="Suivi de la flotte depuis l'application mobile"
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src={media.mobileApp}
+                alt="Suivi de la flotte depuis l'application mobile"
+                width={736}
+                height={1104}
+                loading="lazy"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="h-auto w-full rounded-xl shadow-md"
+              />
               <figcaption className="mt-3 text-center text-sm text-slate-500 dark:text-slate-400">
                 Votre flotte dans la poche : suivi en temps réel depuis votre mobile.
               </figcaption>
             </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ APERÇU PLATEFORME ============ */}
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <Reveal>
+            <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">
+              La plateforme
+            </p>
+            <h2 className="mt-4 text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              Un aperçu de SISBM CORE
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-7 text-slate-500 dark:text-slate-400">
+              Géolocalisation, historique, alertes et rapports : pilotez
+              votre flotte depuis une seule plateforme.
+            </p>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <figure className="mt-12">
+              <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-slate-200 dark:ring-white/10">
+                <Image
+                  src={media.platformScreenshot}
+                  alt="Aperçu de la plateforme SISBM CORE : tableau de bord de supervision de flotte"
+                  width={1376}
+                  height={768}
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 80vw, 100vw"
+                  className="h-auto w-full"
+                />
+              </div>
+            </figure>
+          </Reveal>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            <Reveal delay={160}>
+              <article className="h-full rounded-xl border border-slate-200 bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-md dark:border-white/10 dark:bg-white/5">
+                <span aria-hidden className="block text-3xl">
+                  📍
+                </span>
+                <h3 className="mt-3 font-bold text-slate-900 dark:text-white">
+                  Géolocalisation temps réel
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                  Position haute précision et historique des trajets,
+                  accessibles à tout moment.
+                </p>
+              </article>
+            </Reveal>
+            <Reveal delay={260}>
+              <article className="h-full rounded-xl border border-slate-200 bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-md dark:border-white/10 dark:bg-white/5">
+                <span aria-hidden className="block text-3xl">
+                  📊
+                </span>
+                <h3 className="mt-3 font-bold text-slate-900 dark:text-white">
+                  Tableau de bord KPI
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                  Indicateurs clés et supervision automatisée pour piloter
+                  votre flotte au quotidien.
+                </p>
+              </article>
+            </Reveal>
+            <Reveal delay={360}>
+              <article className="h-full rounded-xl border border-slate-200 bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-md dark:border-white/10 dark:bg-white/5">
+                <span aria-hidden className="block text-3xl">
+                  📄
+                </span>
+                <h3 className="mt-3 font-bold text-slate-900 dark:text-white">
+                  Rapports PDF / Excel
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                  Exportez vos rapports d&apos;activité pour votre gestion
+                  et votre comptabilité.
+                </p>
+              </article>
+            </Reveal>
           </div>
         </div>
       </section>
