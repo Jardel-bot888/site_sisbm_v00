@@ -8,16 +8,153 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Accessibilité : contenu toujours visible si l'utilisateur préfère
-   réduire les animations (le composant Reveal ajoute la classe .reveal) */
+/* ============================================================
+   Animations & effets visuels SISBM CORE
+   ============================================================ */
+
+/* --- Polices locales (Geist) --- */
+body {
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* --- Accessibilité : réduire les animations --- */
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
+  .orb,
+  .float,
+  .shimmer,
+  .pulse-soft {
+    animation: none !important;
+  }
 }
 
-body {
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+/* --- Keyframes : animations CSS --- */
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+@keyframes float-rev {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-30px, 20px) scale(0.95); }
+  66% { transform: translate(20px, -15px) scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blurIn {
+  from { opacity: 0; filter: blur(12px); transform: translateY(20px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+@keyframes drawUnderline {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* --- Classes utilitaires pour les animations --- */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  opacity: 0.55;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: float 14s ease-in-out infinite;
+}
+
+.orb-rev {
+  animation: float-rev 18s ease-in-out infinite;
+}
+
+.float { animation: float 6s ease-in-out infinite; }
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+.pulse-soft { animation: pulse-soft 4s ease-in-out infinite; }
+
+/* --- Glassmorphism --- */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* --- Texte dégradé animé --- */
+.text-gradient-anim {
+  background: linear-gradient(110deg, #60a5fa, #a78bfa 25%, #f0abfc 50%, #60a5fa 75%, #a78bfa);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* --- Underline animé --- */
+.underline-draw {
+  display: inline-block;
+  position: relative;
+}
+.underline-draw::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  transition: width 0.5s ease;
+}
+.group:hover .underline-draw::after,
+.link-underline:hover .underline-draw::after {
+  width: 100%;
+}
+
+/* --- Scrollbar personnalisée --- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+
+/* --- Section reveal --- */
+.section-reveal {
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
