@@ -1,5 +1,8 @@
 ﻿import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+// CSS officiel Lenis : règle `html.lenis { height: auto }` indispensable
+// (sinon le scroll de la page reste plafonné au viewport avec un html en height:100%).
+import "lenis/dist/lenis.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";

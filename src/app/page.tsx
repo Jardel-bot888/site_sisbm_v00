@@ -226,7 +226,6 @@ export default function HomePage() {
       </section>
 
       {/* ============ COUTS CACHES / AVEUGLEMENT OPERATIONNEL ============ */}
-      {/* ============ COUTS CACHES / AVEUGLEMENT OPERATIONNEL ============ */}
       <section id="decouvrir" className="relative scroll-mt-24 border-y border-slate-200 py-16 sm:py-20 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
