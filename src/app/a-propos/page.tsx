@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   title: "A propos",
-  description: `${siteConfig.company} et sa solution ${siteConfig.product} de gestion et supervision de flotte a Abidjan, Cote d'Ivoire.`,
+  description: `${siteConfig.company} et sa solution ${siteConfig.product} de gestion et supervision de flotte à Abidjan, Côte d'Ivoire.`,
   path: "/a-propos",
 });
 
@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        title="A propos"
+        title="À propos"
         subtitle={`${siteConfig.company} - ${siteConfig.product} - ${siteConfig.subtitle}`}
       />
 
@@ -32,13 +32,13 @@ export default function AboutPage() {
                 {siteConfig.description}
               </p>
               <p className="mt-4 leading-7 text-slate-600 dark:text-slate-300">
-                Basees a {siteConfig.address}, nos equipes assurent
-                linstallation du materiel (balise GPS 4G, relais de
+                Basées à {siteConfig.address}, nos équipes assurent
+                l&apos;installation du matériel (balise GPS 4G, relais de
                 coupure moteur), la mise en service de la plateforme et
-                laccompagnement de vos gestionnaires au quotidien.
+                l&apos;accompagnement de vos gestionnaires au quotidien.
               </p>
               <p className="mt-4 leading-7 text-slate-600 dark:text-slate-300">
-                Avec trois niveaux doffre -
+                Avec trois niveaux d&apos;offre —
                 <Link
                   href="/offres/standard"
                   className={`font-semibold ${offers[0].theme.accentText}`}
@@ -59,9 +59,9 @@ export default function AboutPage() {
                 >
                   PREMIUM
                 </Link>
-                - {siteConfig.product} couvre tous les besoins : du simple suivi
-                essentiel jusqua lintegration complete au systeme
-                dinformation.
+                — {siteConfig.product} couvre tous les besoins : du simple suivi
+                essentiel jusqu&apos;à l&apos;intégration complète au système
+                d&apos;information.
               </p>
             </div>
           </Reveal>
@@ -71,7 +71,7 @@ export default function AboutPage() {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-500/20 via-violet-500/15 to-cyan-500/20 blur-2xl" />
               <Image
                 src={media.geolocation}
-                alt="Supervision geolocalisee dune flotte de vehicules"
+                alt="Supervision géolocalisée d'une flotte de véhicules"
                 width={720}
                 height={480}
                 loading="lazy"
@@ -119,11 +119,11 @@ export default function AboutPage() {
       <section className="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6">
         <Reveal>
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
-            Decouvrir lensemble des activites {siteConfig.company}
+            Découvrir l&apos;ensemble des activités {siteConfig.company}
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-500 dark:text-slate-400">
-            Ce site est dedie a la solution {siteConfig.product}. Retrouvez
-            lensemble de nos metiers sur notre site principal.
+            Ce site est dédié à la solution {siteConfig.product}. Retrouvez
+            l&apos;ensemble de nos métiers sur notre site principal.
           </p>
           <a
             href={siteConfig.websiteUrl}

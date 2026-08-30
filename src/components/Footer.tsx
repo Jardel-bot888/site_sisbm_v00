@@ -90,10 +90,25 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-slate-800">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-slate-400 sm:px-6">
-          © {new Date().getFullYear()} {siteConfig.company}. Tous droits
-          réservés.
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-5 text-xs text-slate-400 sm:flex-row sm:px-6">
+          <p>
+            © {new Date().getFullYear()} {siteConfig.company}. Tous droits
+            réservés.
+          </p>
+          <nav aria-label="Pages légales" className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <Link href="/faq" className="hover:text-white">
+              FAQ
+            </Link>
+            <span aria-hidden>·</span>
+            <Link href="/mentions-legales" className="hover:text-white">
+              Mentions légales
+            </Link>
+            <span aria-hidden>·</span>
+            <Link href="/politique-de-confidentialite" className="hover:text-white">
+              Politique de confidentialité
+            </Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );

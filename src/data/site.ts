@@ -51,6 +51,7 @@ export const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/offres", label: "Nos offres" },
   { href: "/a-propos", label: "À propos" },
+  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 

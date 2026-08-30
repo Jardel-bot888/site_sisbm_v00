@@ -415,6 +415,66 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ============ COMMENT ÇA MARCHE ============ */}
+      <section className="relative py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <Reveal>
+            <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">
+              Méthode
+            </p>
+            <h2 className="mt-3 text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              Comment ça marche ?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-center leading-7 text-slate-500 dark:text-slate-400">
+              Du matériel à la décision, SISBM CORE se déploie en trois étapes simples.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                step: "01",
+                icon: "🔧",
+                title: "Installation & configuration",
+                text: "Nos équipes installent la balise GPS 4G et le relais de coupure moteur sur chaque véhicule, puis configurent la plateforme selon vos règles (horaires, zones, seuils de vitesse).",
+              },
+              {
+                step: "02",
+                icon: "📡",
+                title: "Supervision en temps réel",
+                text: "Vos véhicules sont suivis en direct : position, itinéraires, arrêts, alertes. Chaque événement déclenche une notification automatique vers les personnes concernées.",
+              },
+              {
+                step: "03",
+                icon: "📊",
+                title: "Pilotage & décision",
+                text: "Exploitez les tableaux de bord KPI et les rapports PDF / Excel pour optimiser vos coûts, sécuriser la flotte et améliorer la performance opérationnelle.",
+              },
+            ].map((item, index) => (
+              <Reveal key={item.step} delay={index * 120}>
+                <div className="group relative h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/10 dark:border-white/10 dark:bg-white/5 dark:ring-white/10">
+                  <span
+                    aria-hidden
+                    className="absolute right-5 top-4 text-4xl font-bold text-slate-100 dark:text-white/5"
+                  >
+                    {item.step}
+                  </span>
+                  <span aria-hidden className="text-3xl">
+                    {item.icon}
+                  </span>
+                  <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                    {item.text}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ============ APERÇU PLATEFORME ============ */}
       <section className="relative overflow-x-clip py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
