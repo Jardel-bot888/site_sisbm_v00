@@ -55,10 +55,10 @@ export default function Reveal({
   return (
     <div
       ref={ref}
-      className={`reveal transition-all duration-700 ease-out will-change-transform ${
+      className={`reveal transition-[opacity,transform] duration-700 ease-out ${
         visible
           ? "translate-x-0 translate-y-0 opacity-100"
-          : `${initialTranslations[direction]} opacity-0`
+          : `${initialTranslations[direction]} opacity-0 will-change-transform`
       }${className ? ` ${className}` : ""}`}
       style={delay > 0 ? { transitionDelay: `${delay}ms` } : undefined}
     >
