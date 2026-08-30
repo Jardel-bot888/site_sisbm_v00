@@ -44,6 +44,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? "bg-white/15 text-white shadow-inner"
@@ -109,6 +110,7 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
+                aria-current={pathname === link.href ? "page" : undefined}
                 className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   pathname === link.href
                     ? "bg-white/15 text-white"

@@ -24,6 +24,8 @@ export default function OffersPage() {
 
       {/* Cartes des 3 offres */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        {/* Titre invisible (accessibilité) : respecte la hiérarchie h1 → h2 → h3 */}
+        <h2 className="sr-only">Choisissez votre niveau d&apos;offre</h2>
         <div className="grid items-stretch gap-6 md:grid-cols-3">
           {offers.map((offer, index) => (
             <OfferCard key={offer.slug} offer={offer} delay={index * 120} />
