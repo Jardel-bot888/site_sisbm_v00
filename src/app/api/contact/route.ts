@@ -36,9 +36,10 @@ function buildEmail(fields: {
   name: string;
   email: string;
   company: string;
+  subject: string;
   message: string;
 }): { subject: string; text: string; html: string } {
-  const subject = `Nouveau message via le site — ${fields.name}${
+  const subject = `[${fields.subject}] Nouveau message via le site — ${fields.name}${
     fields.company ? ` (${fields.company})` : ""
   }`;
 
@@ -46,6 +47,7 @@ function buildEmail(fields: {
     `Nom : ${fields.name}`,
     `E-mail : ${fields.email}`,
     `Entreprise : ${fields.company || "—"}`,
+    `Sujet : ${fields.subject}`,
     "",
     "Message :",
     fields.message,
@@ -64,6 +66,7 @@ function buildEmail(fields: {
       <p><strong>Nom :</strong> ${escape(fields.name)}</p>
       <p><strong>E-mail :</strong> ${escape(fields.email)}</p>
       <p><strong>Entreprise :</strong> ${escape(fields.company) || "—"}</p>
+      <p><strong>Sujet :</strong> ${escape(fields.subject)}</p>
       <p><strong>Message :</strong></p>
       <p style="white-space: pre-wrap; background:#f8fafc; padding:12px; border-radius:8px;">${escape(fields.message)}</p>
     </div>
@@ -106,6 +109,7 @@ export async function POST(request: Request) {
     name: cleanString(body.name, 80),
     email: cleanString(body.email, 120).toLowerCase(),
     company: cleanString(body.company, 100),
+    subject: cleanString(body.subject, 60),
     message: cleanString(body.message, 2000),
   };
 
@@ -118,6 +122,12 @@ export async function POST(request: Request) {
   if (!EMAIL_RE.test(fields.email)) {
     return NextResponse.json(
       { ok: false, error: "L'adresse e-mail saisie n'est pas valide." },
+      { status: 400 }
+    );
+  }
+  if (fields.subject.length < 2) {
+    return NextResponse.json(
+      { ok: false, error: "Merci d'indiquer le sujet de votre demande." },
       { status: 400 }
     );
   }

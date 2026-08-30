@@ -24,6 +24,7 @@ export default function ContactForm() {
           name: data.get("name"),
           email: data.get("email"),
           company: data.get("company"),
+          subject: data.get("subject"),
           message: data.get("message"),
           // Piège anti-spam : champ invisible, doit rester vide
           website: data.get("website"),
@@ -146,6 +147,30 @@ export default function ContactForm() {
           placeholder="Nom de votre entreprise"
           className={inputClasses}
         />
+      </div>
+      <div>
+        <label
+          htmlFor="subject"
+          className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300"
+        >
+          Sujet *
+        </label>
+        <select
+          id="subject"
+          name="subject"
+          required
+          defaultValue=""
+          className={inputClasses}
+        >
+          <option value="" disabled>
+            Choisissez un sujet…
+          </option>
+          <option value="Devis">Demande de devis</option>
+          <option value="Démonstration">Démonstration</option>
+          <option value="Support technique">Support technique</option>
+          <option value="Partenariat">Partenariat</option>
+          <option value="Autre">Autre</option>
+        </select>
       </div>
       <div>
         <label

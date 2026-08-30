@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import MapEmbed from "@/components/MapEmbed";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import { siteConfig } from "@/data/site";
@@ -89,6 +90,28 @@ export default function ContactPage() {
                   {siteConfig.website}
                 </a>
               </p>
+            </div>
+
+            <div className="rounded-xl bg-slate-50 p-3 ring-1 ring-slate-200 dark:bg-white/5 dark:ring-white/10">
+              <MapEmbed />
+            </div>
+
+            <div className="rounded-xl bg-slate-50 p-6 ring-1 ring-slate-200 dark:bg-white/5 dark:ring-white/10">
+              <h2 className="font-semibold text-slate-900 dark:text-white">Horaires</h2>
+              <dl className="mt-3 space-y-1.5 text-sm text-slate-500 dark:text-slate-400">
+                <div className="flex justify-between">
+                  <dt>Lundi – Vendredi</dt>
+                  <dd className="font-medium text-slate-700 dark:text-slate-200">08h00 – 18h00</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt>Samedi</dt>
+                  <dd className="font-medium text-slate-700 dark:text-slate-200">08h00 – 13h00</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt>Dimanche</dt>
+                  <dd className="font-medium text-slate-700 dark:text-slate-200">Fermé</dd>
+                </div>
+              </dl>
             </div>
           </div>
 
