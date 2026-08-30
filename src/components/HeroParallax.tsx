@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 type HeroParallaxProps = {
   src: string;
@@ -13,8 +12,10 @@ type HeroParallaxProps = {
 
 /**
  * Parallaxe douce de l'image hero : elle glisse légèrement vers le bas
- * pendant le scroll (effet de profondeur). Désactivée si l'utilisateur
- * préfère réduire les animations.
+ * pendant le scroll (effet de profondeur). Implémentation légère en
+ * requestAnimationFrame (aucune librairie d'animation) pour ne pas
+ * alourdir le premier chargement. Désactivée si l'utilisateur préfère
+ * réduire les animations.
  */
 export default function HeroParallax({
   src,
@@ -22,20 +23,36 @@ export default function HeroParallax({
   sizes = "100vw",
   className = "object-cover opacity-80",
 }: HeroParallaxProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const shouldReduce = useReducedMotion();
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    const inner = innerRef.current;
+    if (!wrap || !inner) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let raf = 0;
+    const update = () => {
+      const rect = wrap.getBoundingClientRect();
+      const height = rect.height || 1;
+      // progress = 0 quand le hero est en haut, 1 quand il a quitté le viewport par le haut
+      const progress = Math.min(Math.max(-rect.top / height, 0), 1);
+      const y = progress * 140;
+      inner.style.transform = `scale(1.15) translate3d(0, ${y}px, 0)`;
+      raf = requestAnimationFrame(update);
+    };
+    raf = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   return (
-    <div ref={ref} aria-hidden className="absolute inset-0 overflow-hidden">
-      <motion.div
-        style={shouldReduce ? undefined : { y, scale: 1.15 }}
+    <div ref={wrapRef} aria-hidden className="absolute inset-0 overflow-hidden">
+      <div
+        ref={innerRef}
         className="absolute inset-0 will-change-transform"
+        style={{ transform: "scale(1.15)" }}
       >
         <Image
           src={src}
@@ -46,7 +63,7 @@ export default function HeroParallax({
           sizes={sizes}
           className={className}
         />
-      </motion.div>
+      </div>
     </div>
   );
 }

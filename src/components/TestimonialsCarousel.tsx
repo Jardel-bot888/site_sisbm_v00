@@ -9,17 +9,17 @@ type TestimonialsCarouselProps = {
   items: Testimonial[];
 };
 
-/** Note étoilée affichée (1 à 5) */
+/** Note étoilée affichée (1 à 5) — accessible via texte caché */
 function Stars({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-0.5" aria-label={`Note : ${rating} sur 5`}>
+    <div className="flex gap-0.5" aria-hidden>
       {Array.from({ length: 5 }, (_, i) => (
         <Star
           key={i}
-          aria-hidden
           className={`h-4 w-4 ${i < rating ? "fill-amber-400 text-amber-400" : "text-slate-300 dark:text-slate-600"}`}
         />
       ))}
+      <span className="sr-only">Note : {rating} sur 5</span>
     </div>
   );
 }
@@ -100,19 +100,25 @@ export default function TestimonialsCarousel({
           Témoignage {selectedIndex + 1} / {items.length}
         </p>
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2" aria-hidden>
+          <div className="flex items-center gap-1">
             {scrollSnaps.map((_, index) => (
               <button
                 key={index}
                 type="button"
                 onClick={() => emblaApi?.scrollTo(index)}
                 aria-label={`Aller au témoignage ${index + 1}`}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  index === selectedIndex
-                    ? "w-6 bg-blue-600 dark:bg-blue-400"
-                    : "w-2.5 bg-slate-300 hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500"
-                }`}
-              />
+                aria-current={index === selectedIndex ? "true" : undefined}
+                className="group flex h-6 w-6 items-center justify-center rounded-full"
+              >
+                <span
+                  aria-hidden
+                  className={`block h-2.5 rounded-full transition-all duration-300 ${
+                    index === selectedIndex
+                      ? "w-6 bg-blue-600 dark:bg-blue-400"
+                      : "w-2.5 bg-slate-300 group-hover:bg-slate-400 dark:bg-slate-600 dark:group-hover:bg-slate-500"
+                  }`}
+                />
+              </button>
             ))}
           </div>
           <div className="flex gap-2">

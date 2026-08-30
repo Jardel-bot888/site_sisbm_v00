@@ -210,20 +210,20 @@ export default function HomePage() {
         className="relative border-b border-slate-200 bg-slate-50 py-12 dark:border-white/10 dark:bg-white/5 sm:py-14"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {heroStats.map((stat, index) => (
               <Reveal key={stat.label} delay={index * 100}>
                 <div className="text-center">
-                  <dd className="text-4xl font-extrabold tracking-tight text-gradient-anim sm:text-5xl">
+                  <p className="text-4xl font-extrabold tracking-tight text-gradient-anim sm:text-5xl">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  </dd>
-                  <dt className="mt-2 text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400 sm:text-sm">
+                  </p>
+                  <p className="mt-2 text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400 sm:text-sm">
                     {stat.label}
-                  </dt>
+                  </p>
                 </div>
               </Reveal>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 

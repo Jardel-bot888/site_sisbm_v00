@@ -2,10 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 type GsapImageParallaxProps = {
   src: string;
@@ -17,7 +13,9 @@ type GsapImageParallaxProps = {
 /**
  * Parallaxe douce de l'image à l'intérieur d'une carte (scroll "scrub").
  * Le wrapper déborde légèrement (120% + offset) pour éviter toute zone vide
- * pendant le glissement. Désactivé si prefers-reduced-motion est actif.
+ * pendant le glissement. GSAP est chargé à la demande (import dynamique)
+ * pour ne pas alourdir le premier chargement. Désactivé si
+ * prefers-reduced-motion est actif.
  */
 export default function GsapImageParallax({
   src,
@@ -33,24 +31,39 @@ export default function GsapImageParallax({
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        el,
-        { yPercent: -8 },
-        {
-          yPercent: 8,
-          ease: "none",
-          scrollTrigger: {
-            trigger: el.parentElement,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        }
-      );
-    });
+    let ctx: { revert: () => void } | undefined;
+    let cancelled = false;
 
-    return () => ctx.revert();
+    void (async () => {
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]);
+      if (cancelled) return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      ctx = gsap.context(() => {
+        gsap.fromTo(
+          el,
+          { yPercent: -8 },
+          {
+            yPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: el.parentElement,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          }
+        );
+      });
+    })();
+
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
   }, []);
 
   return (
