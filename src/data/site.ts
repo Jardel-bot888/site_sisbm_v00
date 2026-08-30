@@ -258,6 +258,17 @@ export const platformFeatures = [
 ];
 
 // ------------------------------------------------------------
+// Chiffres clés (bandeau d'accueil) — ⚙️ À ADAPTER à vos données réelles
+// ------------------------------------------------------------
+
+export const heroStats = [
+  { value: 24, suffix: "/7", label: "Supervision de votre flotte en continu" },
+  { value: 100, suffix: "%", label: "Traçabilité des déplacements & événements" },
+  { value: 360, suffix: "°", label: "Vision complète de vos véhicules" },
+  { value: 30, suffix: "%", label: "De coûts d'exploitation maîtrisés en moyenne" },
+];
+
+// ------------------------------------------------------------
 // Tableau comparatif des trois offres (sans tarification publique)
 // ------------------------------------------------------------
 

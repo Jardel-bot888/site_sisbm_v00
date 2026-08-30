@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import OfferCard from "@/components/OfferCard";
 import Reveal from "@/components/Reveal";
-import { media, offers, platformFeatures, reasons, siteConfig } from "@/data/site";
+import { heroStats, media, offers, platformFeatures, reasons, siteConfig } from "@/data/site";
 import { buildMetadata, homeTitle } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -179,12 +180,57 @@ export default function HomePage() {
               </Link>
             </div>
           </Reveal>
+{/* Lien d'ancrage vers la première section */}
+          <Reveal delay={420}>
+            <a
+              href="#decouvrir"
+              className="group mt-12 inline-flex items-center gap-2 text-sm font-medium text-blue-200/80 transition-colors hover:text-white"
+            >
+              Découvrir la plateforme
+              <svg
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </a>
+          </Reveal>
         </div>
       </section>
 
 
+{/* ============ CHIFFRES CLÉS ============ */}
+      <section
+        aria-label="Chiffres clés"
+        className="relative border-b border-slate-200 bg-slate-50 py-12 dark:border-white/10 dark:bg-white/5 sm:py-14"
+      >
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+            {heroStats.map((stat, index) => (
+              <Reveal key={stat.label} delay={index * 100}>
+                <div className="text-center">
+                  <dd className="text-4xl font-extrabold tracking-tight text-gradient-anim sm:text-5xl">
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                  </dd>
+                  <dt className="mt-2 text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400 sm:text-sm">
+                    {stat.label}
+                  </dt>
+                </div>
+              </Reveal>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       {/* ============ COUTS CACHES / AVEUGLEMENT OPERATIONNEL ============ */}
-      <section className="relative border-y border-slate-200 py-16 sm:py-20 dark:border-white/10">
+      {/* ============ COUTS CACHES / AVEUGLEMENT OPERATIONNEL ============ */}
+      <section id="decouvrir" className="relative scroll-mt-24 border-y border-slate-200 py-16 sm:py-20 dark:border-white/10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
             <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-red-600 dark:text-red-400">

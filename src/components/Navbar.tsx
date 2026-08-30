@@ -119,6 +119,16 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          {/* CTA devis : uniquement mobile */}
+          <li className="pt-2">
+            <Link
+              href="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-lg bg-white px-4 py-2.5 text-center text-sm font-semibold text-blue-900 shadow-md transition-all duration-300 hover:bg-blue-50"
+            >
+              Demander un devis
+            </Link>
+          </li>
         </ul>
       )}
     </header>
