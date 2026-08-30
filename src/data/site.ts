@@ -294,6 +294,53 @@ export const heroStats = [
 ];
 
 // ------------------------------------------------------------
+// Témoignages clients (carrousel accueil) — ⚙️ À remplacer par vos vraies citations
+// ------------------------------------------------------------
+
+export type Testimonial = {
+  name: string;
+  role: string;
+  company: string;
+  quote: string;
+  rating: number;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    name: "Jean-Marc K.",
+    role: "Responsable Logistique",
+    company: "Transports Nord-Sud",
+    quote:
+      "Depuis l'installation de SISBM CORE, nous avons réduit de près de 30 % nos coûts de carburant et repris la main sur l'ensemble des trajets.",
+    rating: 5,
+  },
+  {
+    name: "Aïcha T.",
+    role: "Directrice d'exploitation",
+    company: "AgriLog CI",
+    quote:
+      "Les alertes en temps réel et la géolocalisation des engins ont transformé notre supervision quotidienne. Une équipe réactive et un suivi impeccable.",
+    rating: 5,
+  },
+  {
+    name: "Serge B.",
+    role: "Gérant",
+    company: "TransBTP",
+    quote:
+      "La coupure moteur à distance et les zones de sécurité nous ont évité plusieurs situations sensibles. Un vrai gage de sérénité pour notre parc.",
+    rating: 5,
+  },
+  {
+    name: "Fatou D.",
+    role: "Cheffe de parc",
+    company: "Distribution Express",
+    quote:
+      "Les tableaux de bord KPI sont clairs et les rapports PDF / Excel nous font gagner un temps précieux. Je recommande la formule GOLD.",
+    rating: 5,
+  },
+];
+
+// ------------------------------------------------------------
 // Tableau comparatif des trois offres (sans tarification publique)
 // ------------------------------------------------------------
 

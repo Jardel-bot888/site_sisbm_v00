@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { BarChart3, Satellite, Wrench } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import GsapImageParallax from "@/components/GsapImageParallax";
 import HeroParallax from "@/components/HeroParallax";
 import OfferCard from "@/components/OfferCard";
 import Reveal from "@/components/Reveal";
-import { heroStats, media, offers, platformFeatures, reasons, siteConfig } from "@/data/site";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import { heroStats, media, offers, platformFeatures, reasons, siteConfig, testimonials } from "@/data/site";
 import { buildMetadata, homeTitle } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -247,12 +249,11 @@ export default function HomePage() {
                   <div className="border-t-4 border-red-500" aria-hidden />
                   {spot.image ? (
                     <div className="relative aspect-[4/3] overflow-hidden">
-                      <Image
+                      <GsapImageParallax
                         src={spot.image}
                         alt={spot.imageAlt}
-                         fill loading="lazy"
                         sizes="(min-width: 1280px) 20vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        classNameImage="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                   ) : (
@@ -308,12 +309,11 @@ export default function HomePage() {
                   <div aria-hidden className="border-t-4 border-emerald-500" />
                   <div className="relative aspect-[4/3] overflow-hidden">
                     {block.image ? (
-                      <Image
+                      <GsapImageParallax
                         src={block.image}
                         alt={block.imageAlt}
-                         fill loading="lazy"
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        classNameImage="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     ) : (
                       <div className="flex h-full items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-900">
@@ -587,6 +587,27 @@ export default function HomePage() {
                 </p>
               </div>
             </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ TÉMOIGNAGES ============ */}
+      <section className="border-t border-slate-200 py-16 sm:py-20 dark:border-white/10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <Reveal>
+            <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">
+              Ils nous font confiance
+            </p>
+            <h2 className="mt-3 text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              Ce que disent nos clients
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-center leading-7 text-slate-500 dark:text-slate-400">
+              Flottes suivies, coûts maîtrisés, sérénité retrouvée : la parole
+              aux utilisateurs de SISBM CORE.
+            </p>
+          </Reveal>
+          <div className="mt-12">
+            <TestimonialsCarousel items={testimonials} />
           </div>
         </div>
       </section>
