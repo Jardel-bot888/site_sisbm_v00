@@ -116,10 +116,11 @@ export default function HomePage() {
         <HeroParallax
           src={media.hero}
           alt="Flotte de véhicules équipés du tracking SISBM CORE"
+          className="object-cover opacity-90"
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/45 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/20 to-transparent"
         />
         <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
           <Reveal>

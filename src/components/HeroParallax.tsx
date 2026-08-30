@@ -39,8 +39,8 @@ export default function HeroParallax({
       const height = rect.height || 1;
       // progress = 0 quand le hero est en haut, 1 quand il a quitté le viewport par le haut
       const progress = Math.min(Math.max(-rect.top / height, 0), 1);
-      const y = progress * 140;
-      inner.style.transform = `scale(1.15) translate3d(0, ${y}px, 0)`;
+      const y = progress * 60;
+      inner.style.transform = `scale(1.05) translate3d(0, ${y}px, 0)`;
       raf = requestAnimationFrame(update);
     };
     raf = requestAnimationFrame(update);
@@ -52,7 +52,7 @@ export default function HeroParallax({
       <div
         ref={innerRef}
         className="absolute inset-0 will-change-transform"
-        style={{ transform: "scale(1.15)" }}
+        style={{ transform: "scale(1.05)" }}
       >
         <Image
           src={src}
