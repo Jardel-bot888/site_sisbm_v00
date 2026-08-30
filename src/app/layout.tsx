@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollProgress from "@/components/ScrollProgress";
-import SmoothScroll from "@/components/SmoothScroll";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
@@ -113,7 +112,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <WhatsAppButton />
         <ScrollProgress />
-        <SmoothScroll />
       </body>
     </html>
   );

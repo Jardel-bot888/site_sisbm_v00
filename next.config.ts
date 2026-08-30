@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
   compress: true,
   // nodemailer doit rester externe au bundle serveur (module natif & dynamic import)
   serverExternalPackages: ["nodemailer"],
+  // Ne pas exposer la techno serveur (léger gain de surface)
+  poweredByHeader: false,
 };
 
 export default nextConfig;

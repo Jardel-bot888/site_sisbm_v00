@@ -6,6 +6,7 @@ import GsapImageParallax from "@/components/GsapImageParallax";
 import HeroParallax from "@/components/HeroParallax";
 import OfferCard from "@/components/OfferCard";
 import Reveal from "@/components/Reveal";
+import SmoothScroll from "@/components/SmoothScroll";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { heroStats, media, offers, platformFeatures, reasons, siteConfig, testimonials } from "@/data/site";
 import { buildMetadata, homeTitle } from "@/lib/seo";
@@ -111,6 +112,8 @@ const solutionBlocks = [
 export default function HomePage() {
   return (
     <>
+      {/* Scroll soyeux Lenis (page d'accueil uniquement — pages internes plus légères) */}
+      <SmoothScroll />
       {/* ============ HERO ============ */}
       <section className="relative overflow-hidden bg-slate-900 text-white">
         <HeroParallax
