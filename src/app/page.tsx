@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BarChart3, Satellite, Wrench } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import HeroParallax from "@/components/HeroParallax";
 import OfferCard from "@/components/OfferCard";
 import Reveal from "@/components/Reveal";
 import { heroStats, media, offers, platformFeatures, reasons, siteConfig } from "@/data/site";
@@ -110,14 +111,9 @@ export default function HomePage() {
     <>
       {/* ============ HERO ============ */}
       <section className="relative overflow-hidden bg-slate-900 text-white">
-        <Image
+        <HeroParallax
           src={media.hero}
           alt="Flotte de véhicules équipés du tracking SISBM CORE"
-          fill
-          preload
-          fetchPriority="high"
-          sizes="100vw"
-          className="object-cover opacity-80"
         />
         <div
           aria-hidden
