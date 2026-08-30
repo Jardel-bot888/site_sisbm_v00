@@ -120,7 +120,7 @@ export default function HomePage() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/20 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent"
         />
         <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
           <Reveal>
