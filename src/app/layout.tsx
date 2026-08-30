@@ -67,6 +67,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="fr"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} h-full scroll-smooth antialiased`}
       suppressHydrationWarning
     >

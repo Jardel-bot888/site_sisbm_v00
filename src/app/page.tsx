@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BarChart3, Satellite, Wrench } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import OfferCard from "@/components/OfferCard";
 import Reveal from "@/components/Reveal";
@@ -418,9 +419,10 @@ export default function HomePage() {
             {reasons.map((reason, index) => (
               <Reveal key={reason.title} delay={index * 100} className="h-full">
                 <article className="h-full rounded-xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-md">
-                  <span aria-hidden className="block text-3xl">
-                    {reason.icon}
-                  </span>
+                  <reason.icon
+                    aria-hidden
+                    className="h-9 w-9 text-blue-600 dark:text-blue-400"
+                  />
                   <h3 className="mt-3 font-bold text-slate-900 dark:text-white">{reason.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-slate-400">{reason.text}</p>
                 </article>
@@ -480,19 +482,19 @@ export default function HomePage() {
             {[
               {
                 step: "01",
-                icon: "🔧",
+                icon: Wrench,
                 title: "Installation & configuration",
                 text: "Nos équipes installent la balise GPS 4G et le relais de coupure moteur sur chaque véhicule, puis configurent la plateforme selon vos règles (horaires, zones, seuils de vitesse).",
               },
               {
                 step: "02",
-                icon: "📡",
+                icon: Satellite,
                 title: "Supervision en temps réel",
                 text: "Vos véhicules sont suivis en direct : position, itinéraires, arrêts, alertes. Chaque événement déclenche une notification automatique vers les personnes concernées.",
               },
               {
                 step: "03",
-                icon: "📊",
+                icon: BarChart3,
                 title: "Pilotage & décision",
                 text: "Exploitez les tableaux de bord KPI et les rapports PDF / Excel pour optimiser vos coûts, sécuriser la flotte et améliorer la performance opérationnelle.",
               },
@@ -505,9 +507,10 @@ export default function HomePage() {
                   >
                     {item.step}
                   </span>
-                  <span aria-hidden className="text-3xl">
-                    {item.icon}
-                  </span>
+                  <item.icon
+                    aria-hidden
+                    className="h-9 w-9 text-blue-600 dark:text-blue-400"
+                  />
                   <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">
                     {item.title}
                   </h3>
@@ -564,18 +567,19 @@ export default function HomePage() {
                 <ul className="mt-7 space-y-4">
                   {platformFeatures.map((feature) => (
                     <li key={feature.title} className="flex items-start gap-3">
-                      <span aria-hidden className="mt-0.5 text-lg">
-                        {feature.icon}
-                      </span>
-                      <span>
-                        <span className="font-semibold text-slate-800 dark:text-slate-100">
-                          {feature.title}
-                        </span>
-                        <span className="block text-sm leading-6 text-slate-500 dark:text-slate-400">
-                          {feature.description}
-                        </span>
-                      </span>
-                    </li>
+                <feature.icon
+                  aria-hidden
+                  className="mt-1 h-5 w-5 shrink-0 text-blue-500 dark:text-blue-400"
+                />
+                <span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100">
+                    {feature.title}
+                  </span>
+                  <span className="block text-sm leading-6 text-slate-500 dark:text-slate-400">
+                    {feature.description}
+                  </span>
+                </span>
+              </li>
                   ))}
                 </ul>
 

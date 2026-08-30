@@ -2,6 +2,19 @@
 // Données centralisées — SISBM CORE · Gestion & Supervision de Flotte
 // ============================================================
 
+import type { LucideIcon } from "lucide-react";
+import {
+  BarChart3,
+  Bell,
+  Clock,
+  Gauge,
+  Map,
+  MapPin,
+  Satellite,
+  Smartphone,
+  Wrench,
+} from "lucide-react";
+
 export type OfferLevel = "standard" | "gold" | "premium";
 
 export type OfferTheme = {
@@ -197,24 +210,30 @@ export function getOffer(slug: string): Offer | undefined {
 // Pourquoi SISBM CORE
 // ------------------------------------------------------------
 
-export const reasons = [
+export type ReasonItem = {
+  icon: LucideIcon;
+  title: string;
+  text: string;
+};
+
+export const reasons: ReasonItem[] = [
   {
-    icon: "📍",
+    icon: MapPin,
     title: "Suivi en temps réel",
     text: "Position haute précision et historique de vos trajets, accessibles à tout moment.",
   },
   {
-    icon: "🛰️",
+    icon: Satellite,
     title: "Hébergement en local",
     text: "Vos données de géolocalisation restent sur votre infrastructure, en toute confidentialité.",
   },
   {
-    icon: "🔧",
+    icon: Wrench,
     title: "Matériel fiable",
     text: "Traqueurs 4G et relais de coupure moteur installés et configurés par nos équipes.",
   },
   {
-    icon: "📱",
+    icon: Smartphone,
     title: "Suivi depuis mobile",
     text: "Consultez votre flotte depuis votre smartphone ou tablette, quand vous voulez.",
   },
@@ -224,34 +243,40 @@ export const reasons = [
 // Modules de la plateforme (section "Un aperçu de SISBM CORE")
 // ------------------------------------------------------------
 
-export const platformFeatures = [
+export type PlatformFeature = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+};
+
+export const platformFeatures: PlatformFeature[] = [
   {
-    icon: "📍",
+    icon: MapPin,
     title: "Tracking GPS intelligent",
     description: "Position temps réel, historique détaillé des trajets et relecture des déplacements.",
   },
   {
-    icon: "🗺️",
+    icon: Map,
     title: "Zones autorisées",
     description: "Géofences illimitées, entrées et sorties détectées, scénarios de sécurité automatiques.",
   },
   {
-    icon: "🛑",
+    icon: Gauge,
     title: "Vitesse maîtrisée",
     description: "Seuils de vitesse personnalisés, excès détectés et alertés immédiatement.",
   },
   {
-    icon: "⏰",
+    icon: Clock,
     title: "Horaires d'utilisation",
     description: "Plages autorisées configurées, utilisations hors service signalées.",
   },
   {
-    icon: "🔔",
+    icon: Bell,
     title: "Alertes centralisées",
     description: "E-mail, SMS, WhatsApp : les incidents critiques remontent en temps réel.",
   },
   {
-    icon: "📊",
+    icon: BarChart3,
     title: "Tableaux de bord KPI",
     description: "Indicateurs exploitation, sécurité et maintenance, export PDF / Excel et rapports automatiques.",
   },

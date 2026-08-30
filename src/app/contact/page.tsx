@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Mail, MapPin, Phone } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import MapEmbed from "@/components/MapEmbed";
 import PageHeader from "@/components/PageHeader";
@@ -15,17 +16,17 @@ export const metadata: Metadata = buildMetadata({
 export default function ContactPage() {
   const contactItems = [
     {
-      icon: "📍",
+      icon: MapPin,
       label: "Adresse",
       value: siteConfig.address,
     },
     {
-      icon: "📞",
+      icon: Phone,
       label: "Téléphones",
       value: `${siteConfig.phone1} · ${siteConfig.phone2}`,
     },
     {
-      icon: "✉️",
+      icon: Mail,
       label: "E-mail",
       value: siteConfig.email,
     },
@@ -47,9 +48,9 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4 rounded-xl border-t-4 border-blue-600 bg-white p-5 shadow-sm ring-1 ring-slate-200 dark:bg-white/5 dark:ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                   <span
                     aria-hidden
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-500/15 text-xl"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-500/15"
                   >
-                    {item.icon}
+                    <item.icon className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                   </span>
                   <div>
                     <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">

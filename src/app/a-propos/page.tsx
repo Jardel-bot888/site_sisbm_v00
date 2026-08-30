@@ -99,9 +99,10 @@ export default function AboutPage() {
             {reasons.map((reason, index) => (
               <Reveal key={reason.title} delay={index * 100}>
                 <div className="glass-light group h-full rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-300/40 hover:shadow-lg hover:shadow-blue-500/20">
-                  <span className="text-3xl" aria-hidden>
-                    {reason.icon}
-                  </span>
+                  <reason.icon
+                    aria-hidden
+                    className="h-9 w-9 text-blue-600 dark:text-blue-400"
+                  />
                   <h3 className="mt-4 font-semibold text-slate-900 dark:text-white">
                     {reason.title}
                   </h3>
