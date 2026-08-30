@@ -1,27 +1,42 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
+import { useEffect, useRef } from "react";
 
 /**
  * Barre de progression de lecture en haut de page (dégradé).
+ * Implémentation légère en requestAnimationFrame — aucune librairie
+ * d'animation : n'alourdit pas les bundles partagés entre les pages.
  * Désactivée si l'utilisateur préfère réduire les animations.
  */
 export default function ScrollProgress() {
-  const shouldReduce = useReducedMotion();
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 30,
-    restDelta: 0.001,
-  });
+  const barRef = useRef<HTMLDivElement>(null);
 
-  if (shouldReduce) return null;
+  useEffect(() => {
+    const el = barRef.current;
+    if (!el) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.style.display = "none";
+      return;
+    }
+
+    let raf = 0;
+    const update = () => {
+      const max =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      el.style.transform = `scaleX(${ratio})`;
+      raf = requestAnimationFrame(update);
+    };
+    raf = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   return (
-    <motion.div
-      style={{ scaleX }}
-      className="fixed inset-x-0 top-0 z-[70] h-1 origin-left bg-gradient-to-r from-blue-500 via-violet-500 to-cyan-500"
+    <div
+      ref={barRef}
       aria-hidden
+      className="fixed inset-x-0 top-0 z-[70] h-1 origin-left bg-gradient-to-r from-blue-500 via-violet-500 to-cyan-500"
     />
   );
 }

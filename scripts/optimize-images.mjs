@@ -63,6 +63,12 @@ const targets = [
     width: 1200,
     quality: 82,
   },
+  // Matériel installé (balise + coupure moteur) — affichée en 22rem max (~350px)
+  {
+    file: "public/visuels_redim/materiel-tracker.jpg",
+    width: 540,
+    quality: 80,
+  },
 ];
 
 let totalBefore = 0;
