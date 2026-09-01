@@ -7,6 +7,26 @@
   --font-sans: var(--font-geist-sans);
 }
 
+/* ------------------------------------------------------------
+   Palette bleu "Deep Navy" SISBM CORE (#003366)
+   Surcharge la palette blue par défaut de Tailwind — toutes les
+   classes blue-* (text/bg/border/from/to/ring...) sont recentrées
+   autour de cette teinte. blue-900 = couleur exacte de la marque.
+   ------------------------------------------------------------ */
+@theme {
+  --color-blue-50: #eef4fb;
+  --color-blue-100: #d6e4f5;
+  --color-blue-200: #b0ccec;
+  --color-blue-300: #84aee0;
+  --color-blue-400: #548dd1;
+  --color-blue-500: #2d6ebc;
+  --color-blue-600: #1655a3;
+  --color-blue-700: #0a4388;
+  --color-blue-800: #033a73;
+  --color-blue-900: #003366;
+  --color-blue-950: #002449;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -84,7 +104,7 @@ body {
 
 /* --- Texte dégradé animé --- */
 .text-gradient-anim {
-  background: linear-gradient(110deg, #60a5fa, #a78bfa 25%, #f0abfc 50%, #60a5fa 75%, #a78bfa);
+  background: linear-gradient(110deg, #548dd1, #8b5cf6 25%, #e879f9 50%, #548dd1 75%, #8b5cf6);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -101,11 +121,11 @@ body {
   background: #e2e8f0;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  background: linear-gradient(to bottom, #548dd1, #8b5cf6);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+  background: linear-gradient(to bottom, #2d6ebc, #7c3aed);
 }
 .dark ::-webkit-scrollbar-track {
   background: #0f172a;

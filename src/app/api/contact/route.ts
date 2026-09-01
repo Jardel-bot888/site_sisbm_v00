@@ -62,7 +62,7 @@ function buildEmail(fields: {
 
   const html = `
     <div style="font-family: sans-serif; max-width: 560px;">
-      <h2 style="color:#1e40af;">Nouveau message via le site SISBM CORE</h2>
+      <h2 style="color:#003366;">Nouveau message via le site SISBM CORE</h2>
       <p><strong>Nom :</strong> ${escape(fields.name)}</p>
       <p><strong>E-mail :</strong> ${escape(fields.email)}</p>
       <p><strong>Entreprise :</strong> ${escape(fields.company) || "—"}</p>
