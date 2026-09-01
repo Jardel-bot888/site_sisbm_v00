@@ -82,7 +82,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} h-full scroll-smooth antialiased`}
       suppressHydrationWarning
     >
-      <body className="relative flex min-h-full flex-col bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+      <body
+        className="relative flex min-h-full flex-col bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100"
+        suppressHydrationWarning
+      >
         {/* Anti-FOUC : applique le thème avant le premier rendu */}
         <script
           dangerouslySetInnerHTML={{ __html: themeScript }}
