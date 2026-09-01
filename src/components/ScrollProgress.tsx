@@ -36,7 +36,7 @@ export default function ScrollProgress() {
     <div
       ref={barRef}
       aria-hidden
-      className="fixed inset-x-0 top-0 z-[70] h-1 origin-left bg-gradient-to-r from-blue-500 via-violet-500 to-cyan-500"
+      className="fixed inset-x-0 top-0 z-[70] h-1 origin-left bg-blue-600"
     />
   );
 }

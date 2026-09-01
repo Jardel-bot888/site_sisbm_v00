@@ -71,7 +71,7 @@ export default function TestimonialsCarousel({
                 <figcaption className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-4 dark:border-white/10">
                   <span
                     aria-hidden
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-violet-500 text-base font-bold text-white"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-700 text-base font-bold text-white"
                   >
                     {t.name
                       .split(" ")

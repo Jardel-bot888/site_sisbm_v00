@@ -19,7 +19,7 @@ export type OfferLevel = "standard" | "gold" | "premium";
 
 export type OfferTheme = {
   label: string;
-  gradient: string;
+  solid: string;
   accentText: string;
   badge: string;
   button: string;
@@ -91,7 +91,7 @@ export const offers: Offer[] = [
     level: "standard",
     theme: {
       label: "text-blue-700",
-      gradient: "from-blue-600 to-blue-500",
+      solid: "bg-blue-800",
       accentText: "text-blue-700",
       badge: "bg-blue-100 text-blue-800",
       button: "bg-blue-700 hover:bg-blue-600",
@@ -130,7 +130,7 @@ export const offers: Offer[] = [
     level: "gold",
     theme: {
       label: "text-amber-700",
-      gradient: "from-amber-500 to-orange-600",
+      solid: "bg-amber-600",
       accentText: "text-amber-700",
       badge: "bg-amber-100 text-amber-800",
       button: "bg-amber-600 hover:bg-amber-500",
@@ -169,7 +169,7 @@ export const offers: Offer[] = [
     level: "premium",
     theme: {
       label: "text-teal-700",
-      gradient: "from-teal-600 to-emerald-500",
+      solid: "bg-teal-700",
       accentText: "text-teal-700",
       badge: "bg-teal-100 text-teal-800",
       button: "bg-teal-700 hover:bg-teal-600",

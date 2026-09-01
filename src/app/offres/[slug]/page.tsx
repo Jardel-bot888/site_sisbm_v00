@@ -89,7 +89,7 @@ export default async function OfferDetailPage({
       <JsonLd data={serviceLd} />
       {/* En-tête coloré de l'offre */}
       <section
-        className={`bg-gradient-to-r ${offer.theme.gradient} py-16 text-white sm:py-20`}
+        className={`${offer.theme.solid} py-16 text-white sm:py-20`}
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
@@ -172,7 +172,7 @@ export default async function OfferDetailPage({
 
             <Reveal direction="left" delay={280}>
               <div
-                className={`rounded-xl bg-gradient-to-br ${offer.theme.gradient} p-6 text-white shadow-lg`}
+                className={`rounded-xl ${offer.theme.solid} p-6 text-white shadow-lg`}
               >
                 <h2 className="font-bold">
                   Intéressé par l&apos;offre {offer.title} ?

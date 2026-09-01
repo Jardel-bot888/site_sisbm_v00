@@ -12,7 +12,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-blue-950/60 bg-gradient-to-r from-blue-900 to-slate-950 shadow-lg shadow-blue-950/30">
+    <header className="sticky top-0 z-50 border-b border-blue-950/60 bg-blue-900 shadow-lg shadow-blue-950/30">
             <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -104,7 +104,7 @@ export default function Navbar() {
 
       {/* Menu mobile */}
       {menuOpen && (
-        <ul className="space-y-1 border-t border-blue-950/60 bg-gradient-to-r from-blue-900 to-slate-950 px-4 py-3 md:hidden">
+        <ul className="space-y-1 border-t border-blue-950/60 bg-blue-900 px-4 py-3 md:hidden">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link

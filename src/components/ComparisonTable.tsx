@@ -43,7 +43,7 @@ export default function ComparisonTable() {
                 <th
                   key={offer.slug}
                   scope="col"
-                  className={`px-4 py-4 text-center ${offer.theme.accentText.replace(/text-\w+-\d+/, "text-white")} bg-gradient-to-r ${offer.theme.gradient} font-extrabold tracking-wide`}
+                  className={`px-4 py-4 text-center ${offer.theme.accentText.replace(/text-\w+-\d+/, "text-white")} ${offer.theme.solid} font-extrabold tracking-wide`}
                 >
                   {offer.title}
                 </th>
@@ -78,7 +78,7 @@ export default function ComparisonTable() {
             className={`overflow-hidden rounded-2xl border border-slate-200 ring-2 dark:border-white/10 ${offer.theme.ring}`}
           >
             <div
-              className={`bg-gradient-to-r ${offer.theme.gradient} px-4 py-3 text-center font-extrabold tracking-wide text-white`}
+              className={`${offer.theme.solid} px-4 py-3 text-center font-extrabold tracking-wide text-white`}
             >
               {offer.title}
             </div>

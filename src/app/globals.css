@@ -8,23 +8,21 @@
 }
 
 /* ------------------------------------------------------------
-   Palette bleu "Deep Navy" SISBM CORE (#003366)
-   Surcharge la palette blue par défaut de Tailwind — toutes les
-   classes blue-* (text/bg/border/from/to/ring...) sont recentrées
-   autour de cette teinte. blue-900 = couleur exacte de la marque.
+   Palette bleu SISBM CORE — couleur exacte #0c3e69 (hsl 208,80%,23%)
+   Surcharge la palette blue par défaut de Tailwind. blue-900 = #0c3e69.
    ------------------------------------------------------------ */
 @theme {
-  --color-blue-50: #eef4fb;
-  --color-blue-100: #d6e4f5;
-  --color-blue-200: #b0ccec;
-  --color-blue-300: #84aee0;
-  --color-blue-400: #548dd1;
-  --color-blue-500: #2d6ebc;
-  --color-blue-600: #1655a3;
-  --color-blue-700: #0a4388;
-  --color-blue-800: #033a73;
-  --color-blue-900: #003366;
-  --color-blue-950: #002449;
+  --color-blue-50: #e8f3fc;
+  --color-blue-100: #d1e7fa;
+  --color-blue-200: #a3cff5;
+  --color-blue-300: #6cb2ef;
+  --color-blue-400: #3092e8;
+  --color-blue-500: #1673c5;
+  --color-blue-600: #125ea1;
+  --color-blue-700: #0f518a;
+  --color-blue-800: #0d4677;
+  --color-blue-900: #0c3e69;
+  --color-blue-950: #082845;
 }
 
 html {
@@ -47,45 +45,9 @@ body {
     transform: none !important;
     transition: none !important;
   }
-  .orb,
-  .orb-rev,
-  .text-gradient-anim {
-    animation: none !important;
-  }
 }
 
-/* --- Keyframes : animations CSS --- */
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -20px) scale(1.05); }
-  66% { transform: translate(-20px, 15px) scale(0.95); }
-}
-
-@keyframes float-rev {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-30px, 20px) scale(0.95); }
-  66% { transform: translate(20px, -15px) scale(1.05); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* --- Classes utilitaires pour les animations --- */
-.orb {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(70px);
-  opacity: 0.55;
-  pointer-events: none;
-  will-change: transform, opacity;
-  animation: float 14s ease-in-out infinite;
-}
-
-.orb-rev {
-  animation: float-rev 18s ease-in-out infinite;
-}
+/* --- Classes utilitaires (style plat, sans dégradé) --- */
 
 /* --- Glassmorphism --- */
 .glass-light {
@@ -102,17 +64,9 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* --- Texte dégradé animé --- */
-.text-gradient-anim {
-  background: linear-gradient(110deg, #548dd1, #8b5cf6 25%, #e879f9 50%, #548dd1 75%, #8b5cf6);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shimmer 6s linear infinite;
-}
+/* --- Texte dégradé animé : supprimé (style plat demandé) --- */
 
-/* --- Scrollbar personnalisée --- */
+/* --- Scrollbar personnalisée (couleur unie) --- */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -121,12 +75,12 @@ body {
   background: #e2e8f0;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #548dd1, #8b5cf6);
+  background: #0c3e69;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2d6ebc, #7c3aed);
+  background: #125ea1;
 }
 .dark ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #082845;
 }

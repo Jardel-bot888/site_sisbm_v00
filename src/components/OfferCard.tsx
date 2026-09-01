@@ -21,7 +21,7 @@ export default function OfferCard({ offer, delay = 0 }: OfferCardProps) {
       >
         {/* En-tête coloré */}
         <div
-          className={`relative bg-gradient-to-r ${offer.theme.gradient} px-6 py-5 text-white`}
+          className={`relative ${offer.theme.solid} px-6 py-5 text-white`}
         >
           {offer.level === "gold" && (
             <div className="absolute right-4 top-4">

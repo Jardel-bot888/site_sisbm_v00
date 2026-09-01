@@ -68,8 +68,7 @@ export default function AboutPage() {
 
           <Reveal direction="right" delay={120}>
             <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-500/20 via-violet-500/15 to-cyan-500/20 blur-2xl" />
-              <Image
+                <Image
                 src={media.geolocation}
                 alt="Supervision géolocalisée d'une flotte de véhicules"
                 width={720}
@@ -85,10 +84,6 @@ export default function AboutPage() {
 
       {/* Nos engagements */}
       <section className="relative overflow-hidden py-16">
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="orb absolute -left-32 top-1/2 h-64 w-64 bg-blue-500/20" style={{ animation: "float 18s ease-in-out infinite" }} />
-          <div className="orb-rev absolute -right-32 top-1/2 h-56 w-56 bg-violet-500/20" style={{ animation: "float-rev 22s ease-in-out infinite" }} />
-        </div>
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
             <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
@@ -130,7 +125,7 @@ export default function AboutPage() {
             href={siteConfig.websiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/40"
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-blue-700 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-500/40"
           >
             Visiter {siteConfig.website}
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9-9"/><path d="M7 7h10v10"/></svg>
