@@ -502,7 +502,7 @@ export default function HomePage() {
                 <div className="group relative h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/10 dark:border-white/10 dark:bg-white/5 dark:ring-white/10">
                   <span
                     aria-hidden
-                    className="absolute right-5 top-4 text-4xl font-bold text-slate-100 dark:text-white/5"
+                    className="absolute right-5 top-4 text-5xl font-extrabold leading-none text-cyan/40 dark:text-cyan/25"
                   >
                     {item.step}
                   </span>

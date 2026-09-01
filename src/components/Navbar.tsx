@@ -47,7 +47,7 @@ export default function Navbar() {
                   aria-current={isActive ? "page" : undefined}
                   className={`relative rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-mint after:transition-transform after:duration-200 ${
                     isActive
-                      ? "text-cyan-300 after:scale-x-100"
+                      ? "bg-white/10 text-white after:scale-x-100"
                       : "text-white/80 hover:text-white"
                   }`}
                 >
@@ -113,8 +113,8 @@ export default function Navbar() {
                 aria-current={pathname === link.href ? "page" : undefined}
                 className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? "text-cyan-300"
-                    : "text-white/80 hover:bg-white/10 hover:text-white"
+                    ? "bg-white/10 text-white"
+                    : "text-white/80 hover:text-white"
                 }`}
               >
                 {link.label}
