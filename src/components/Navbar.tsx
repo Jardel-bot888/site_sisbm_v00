@@ -12,8 +12,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-blue-950/60 bg-blue-900 shadow-lg shadow-blue-950/30">
-            <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-white/15 bg-blue-900/95 shadow-lg shadow-blue-950/30 backdrop-blur-md">
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src={media.logo}
@@ -45,10 +45,10 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-200 ${
+                  className={`relative rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 after:absolute after:inset-x-3 after:-bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-mint after:transition-transform after:duration-200 ${
                     isActive
-                      ? "bg-white/15 text-white shadow-inner"
-                      : "text-blue-100 hover:bg-white/10 hover:text-white"
+                      ? "text-cyan-300 after:scale-x-100"
+                      : "text-white/80 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -60,7 +60,7 @@ export default function Navbar() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-blue-900 shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50 hover:shadow-lg"
+              className="rounded-lg bg-cta px-4 py-2 text-sm font-semibold text-white shadow-md shadow-cta/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cta-light hover:shadow-lg hover:shadow-cta/50"
             >
               Demander un devis
             </Link>
@@ -104,7 +104,7 @@ export default function Navbar() {
 
       {/* Menu mobile */}
       {menuOpen && (
-        <ul className="space-y-1 border-t border-blue-950/60 bg-blue-900 px-4 py-3 md:hidden">
+        <ul className="space-y-1 border-t border-white/15 bg-blue-900/95 px-4 py-3 md:hidden">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
@@ -113,8 +113,8 @@ export default function Navbar() {
                 aria-current={pathname === link.href ? "page" : undefined}
                 className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? "bg-white/15 text-white"
-                    : "text-blue-100 hover:bg-white/10 hover:text-white"
+                    ? "text-cyan-300"
+                    : "text-white/80 hover:bg-white/10 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -126,7 +126,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="block rounded-lg bg-white px-4 py-2.5 text-center text-sm font-semibold text-blue-900 shadow-md transition-all duration-300 hover:bg-blue-50"
+              className="block rounded-lg bg-cta px-4 py-2.5 text-center text-sm font-semibold text-white shadow-md shadow-cta/40 transition-all duration-300 hover:bg-cta-light"
             >
               Demander un devis
             </Link>

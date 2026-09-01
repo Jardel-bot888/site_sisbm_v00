@@ -28,7 +28,7 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          backgroundColor: "#082845",
+          backgroundColor: "#092c4d",
           padding: "72px 84px",
           position: "relative",
         }}
@@ -41,7 +41,7 @@ export default function OpengraphImage() {
             left: 0,
             width: "100%",
             height: 12,
-            backgroundColor: "#0c3e69",
+            backgroundColor: "#0d3f6b",
           }}
         />
         <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
@@ -66,7 +66,7 @@ export default function OpengraphImage() {
           style={{
             display: "flex",
             fontSize: 40,
-            color: "#6cb2ef",
+            color: "#4bb8e8",
             marginTop: 24,
             fontWeight: 600,
           }}

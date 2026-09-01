@@ -83,7 +83,7 @@ export default function FaqPage() {
                   {item.question}
                   <span
                     aria-hidden
-                    className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-blue-50 text-blue-700 transition-transform duration-300 group-open:rotate-45 dark:bg-blue-500/15 dark:text-blue-300"
+                    className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-cyan/10 text-cyan transition-transform duration-300 group-open:rotate-45 dark:bg-cyan/20 dark:text-cyan-300"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -115,7 +115,7 @@ export default function FaqPage() {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-block rounded-lg bg-blue-700 px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/40"
+              className="mt-6 inline-block rounded-lg bg-cyan px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-light hover:shadow-lg hover:shadow-cyan/40"
             >
               Nous contacter
             </Link>

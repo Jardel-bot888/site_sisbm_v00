@@ -50,7 +50,7 @@ export default function ContactPage() {
                     aria-hidden
                     className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-500/15"
                   >
-                    <item.icon className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                    <item.icon className="h-5 w-5 text-cyan dark:text-cyan-400" />
                   </span>
                   <div>
                     <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">

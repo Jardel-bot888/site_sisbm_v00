@@ -4,7 +4,7 @@ import { media, navLinks, offers, siteConfig } from "@/data/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-navy text-slate-300">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         {/* Marque + contact */}
         <div>
@@ -26,16 +26,16 @@ export default function Footer() {
           <address className="mt-4 space-y-1 text-sm not-italic leading-6">
             <p>{siteConfig.address}</p>
             <p>
-              <a href={`tel:${siteConfig.phone1.replace(/\s/g, "")}`} className="hover:text-white">
+              <a href={`tel:${siteConfig.phone1.replace(/\s/g, "")}`} className="hover:text-cyan-300">
                 {siteConfig.phone1}
               </a>{" "}
               ·{" "}
-              <a href={`tel:${siteConfig.phone2.replace(/\s/g, "")}`} className="hover:text-white">
+              <a href={`tel:${siteConfig.phone2.replace(/\s/g, "")}`} className="hover:text-cyan-300">
                 {siteConfig.phone2}
               </a>
             </p>
             <p>
-              <a href={`mailto:${siteConfig.email}`} className="hover:text-white">
+              <a href={`mailto:${siteConfig.email}`} className="hover:text-cyan-300">
                 {siteConfig.email}
               </a>
             </p>
@@ -50,7 +50,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="hover:text-white">
+                <Link href={link.href} className="hover:text-cyan-300">
                   {link.label}
                 </Link>
               </li>
@@ -68,7 +68,7 @@ export default function Footer() {
               <li key={offer.slug}>
                 <Link
                   href={`/offres/${offer.slug}`}
-                  className="hover:text-white"
+                  className="hover:text-cyan-300"
                 >
                   Offre {offer.title} — {offer.need}
                 </Link>
@@ -81,7 +81,7 @@ export default function Footer() {
               href={siteConfig.websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-slate-600 underline-offset-2 hover:text-white"
+              className="underline decoration-slate-600 underline-offset-2 hover:text-cyan-300"
             >
               {siteConfig.website}
             </a>
@@ -96,15 +96,15 @@ export default function Footer() {
             réservés.
           </p>
           <nav aria-label="Pages légales" className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-            <Link href="/faq" className="hover:text-white">
+            <Link href="/faq" className="hover:text-cyan-300">
               FAQ
             </Link>
             <span aria-hidden>·</span>
-            <Link href="/mentions-legales" className="hover:text-white">
+            <Link href="/mentions-legales" className="hover:text-cyan-300">
               Mentions légales
             </Link>
             <span aria-hidden>·</span>
-            <Link href="/politique-de-confidentialite" className="hover:text-white">
+            <Link href="/politique-de-confidentialite" className="hover:text-cyan-300">
               Politique de confidentialité
             </Link>
           </nav>

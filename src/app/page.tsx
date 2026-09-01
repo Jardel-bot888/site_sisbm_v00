@@ -127,7 +127,7 @@ export default function HomePage() {
         />
         <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
           <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-600 dark:text-blue-300">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan dark:text-cyan-300">
               {siteConfig.name} · {siteConfig.subtitle}
             </p>
             <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -218,7 +218,7 @@ export default function HomePage() {
             {heroStats.map((stat, index) => (
               <Reveal key={stat.label} delay={index * 100}>
                 <div className="text-center">
-                  <p className="text-4xl font-extrabold tracking-tight text-blue-700 sm:text-5xl">
+                  <p className="text-4xl font-extrabold tracking-tight text-cyan sm:text-5xl">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   </p>
                   <p className="mt-2 text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400 sm:text-sm">
@@ -638,7 +638,7 @@ export default function HomePage() {
           <Reveal delay={150}>
             <Link
               href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-blue-700 px-8 py-3.5 font-semibold shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-500/40"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-cyan px-8 py-3.5 font-semibold shadow-lg shadow-cyan/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-light hover:shadow-xl hover:shadow-cyan/40"
             >
               Demander une démonstration gratuite
             </Link>

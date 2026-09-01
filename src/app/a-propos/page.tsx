@@ -125,7 +125,7 @@ export default function AboutPage() {
             href={siteConfig.websiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-blue-700 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-500/40"
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-cyan px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cyan/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-light hover:shadow-xl hover:shadow-cyan/40"
           >
             Visiter {siteConfig.website}
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9-9"/><path d="M7 7h10v10"/></svg>

@@ -1,0 +1,414 @@
+/* ============================================================
+   SISBM Assistant — Chat Widget
+   Thème "console SOC" : fond nuit, accent cyan, police mono
+   pour les statuts, sans-serif pour la conversation.
+   ============================================================ */
+
+:root {
+  --sisbm-navy-950: #0a0f1c;
+  --sisbm-navy-900: #0f172a;
+  --sisbm-navy-800: #16223a;
+  --sisbm-navy-700: #1e2c47;
+  --sisbm-cyan-400: #22d3ee;
+  --sisbm-cyan-300: #67e8f9;
+  --sisbm-amber-500: #f5a524;
+  --sisbm-text-100: #eef2f8;
+  --sisbm-text-400: #93a1b8;
+  --sisbm-font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  --sisbm-font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+#sisbm-chat-launcher,
+#sisbm-chat-window * {
+  box-sizing: border-box;
+}
+
+/* ---------- Bouton flottant ---------- */
+#sisbm-chat-launcher {
+  position: fixed;
+  right: 24px;
+  bottom: 100px; /* au-dessus de la bulle WhatsApp existante */
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(155deg, var(--sisbm-navy-800), var(--sisbm-navy-950));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(34, 211, 238, 0.25) inset;
+  cursor: pointer;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#sisbm-chat-launcher:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(34, 211, 238, 0.4) inset;
+}
+
+#sisbm-chat-launcher:focus-visible {
+  outline: 2px solid var(--sisbm-cyan-400);
+  outline-offset: 3px;
+}
+
+#sisbm-chat-launcher svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--sisbm-cyan-300);
+}
+
+#sisbm-chat-launcher .sisbm-ping {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--sisbm-amber-500);
+  box-shadow: 0 0 0 2px var(--sisbm-navy-950);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #sisbm-chat-launcher .sisbm-ping::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--sisbm-amber-500);
+    animation: sisbm-pulse 2.2s ease-out infinite;
+  }
+}
+
+@keyframes sisbm-pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* ---------- Fenêtre de chat ---------- */
+#sisbm-chat-window {
+  position: fixed;
+  right: 24px;
+  bottom: 172px;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  height: 520px;
+  max-height: calc(100vh - 220px);
+  background: var(--sisbm-navy-900);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--sisbm-navy-700);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  font-family: var(--sisbm-font-body);
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+#sisbm-chat-window.sisbm-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ---------- En-tête style "console" ---------- */
+.sisbm-header {
+  background: linear-gradient(120deg, var(--sisbm-navy-950), var(--sisbm-navy-800));
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--sisbm-navy-700);
+}
+
+.sisbm-header .sisbm-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--sisbm-navy-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sisbm-cyan-300);
+  font-family: var(--sisbm-font-mono);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.sisbm-header-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.sisbm-header-text .sisbm-title {
+  color: var(--sisbm-text-100);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.sisbm-header-text .sisbm-status {
+  font-family: var(--sisbm-font-mono);
+  font-size: 11px;
+  color: var(--sisbm-cyan-300);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.sisbm-status .sisbm-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  flex-shrink: 0;
+}
+
+.sisbm-header button.sisbm-close {
+  background: none;
+  border: none;
+  color: var(--sisbm-text-400);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+}
+
+.sisbm-header button.sisbm-close:hover {
+  color: var(--sisbm-text-100);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- Zone de messages ---------- */
+.sisbm-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(34, 211, 238, 0.05), transparent 40%),
+    var(--sisbm-navy-900);
+}
+
+.sisbm-msg {
+  max-width: 84%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.sisbm-msg.sisbm-bot {
+  align-self: flex-start;
+  background: var(--sisbm-navy-800);
+  color: var(--sisbm-text-100);
+  border-bottom-left-radius: 3px;
+}
+
+.sisbm-msg.sisbm-user {
+  align-self: flex-end;
+  background: var(--sisbm-cyan-400);
+  color: var(--sisbm-navy-950);
+  font-weight: 500;
+  border-bottom-right-radius: 3px;
+}
+
+.sisbm-msg a {
+  color: var(--sisbm-cyan-300);
+}
+.sisbm-msg.sisbm-user a {
+  color: var(--sisbm-navy-950);
+  text-decoration: underline;
+}
+
+/* Bulles de "saisie en cours" */
+.sisbm-typing {
+  align-self: flex-start;
+  display: flex;
+  gap: 4px;
+  padding: 10px 12px;
+  background: var(--sisbm-navy-800);
+  border-radius: 12px;
+  border-bottom-left-radius: 3px;
+}
+.sisbm-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sisbm-text-400);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sisbm-typing span {
+    animation: sisbm-bounce 1.1s infinite ease-in-out;
+  }
+  .sisbm-typing span:nth-child(2) { animation-delay: 0.15s; }
+  .sisbm-typing span:nth-child(3) { animation-delay: 0.3s; }
+}
+@keyframes sisbm-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ---------- Suggestions rapides ---------- */
+.sisbm-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 16px 12px;
+  background: var(--sisbm-navy-900);
+}
+
+.sisbm-chip {
+  font-family: var(--sisbm-font-mono);
+  font-size: 11.5px;
+  color: var(--sisbm-cyan-300);
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+  border-radius: 999px;
+  padding: 6px 11px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.sisbm-chip:hover {
+  background: rgba(34, 211, 238, 0.18);
+}
+
+.sisbm-chip:focus-visible {
+  outline: 2px solid var(--sisbm-cyan-400);
+  outline-offset: 2px;
+}
+
+/* ---------- Formulaire de contact (capture de lead) ---------- */
+.sisbm-lead-form {
+  align-self: stretch;
+  background: var(--sisbm-navy-800);
+  border: 1px solid var(--sisbm-navy-700);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sisbm-lead-form label {
+  font-size: 11.5px;
+  font-family: var(--sisbm-font-mono);
+  color: var(--sisbm-text-400);
+}
+
+.sisbm-lead-form input,
+.sisbm-lead-form textarea {
+  background: var(--sisbm-navy-950);
+  border: 1px solid var(--sisbm-navy-700);
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: var(--sisbm-text-100);
+  font-size: 13px;
+  font-family: var(--sisbm-font-body);
+  width: 100%;
+}
+
+.sisbm-lead-form input:focus,
+.sisbm-lead-form textarea:focus {
+  outline: none;
+  border-color: var(--sisbm-cyan-400);
+}
+
+.sisbm-lead-form textarea {
+  resize: vertical;
+  min-height: 50px;
+}
+
+.sisbm-lead-form button {
+  margin-top: 2px;
+  background: var(--sisbm-cyan-400);
+  color: var(--sisbm-navy-950);
+  border: none;
+  border-radius: 8px;
+  padding: 9px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.sisbm-lead-form button:hover {
+  background: var(--sisbm-cyan-300);
+}
+
+/* ---------- Zone de saisie ---------- */
+.sisbm-input-bar {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--sisbm-navy-700);
+  background: var(--sisbm-navy-900);
+}
+
+.sisbm-input-bar input {
+  flex: 1;
+  background: var(--sisbm-navy-800);
+  border: 1px solid var(--sisbm-navy-700);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--sisbm-text-100);
+  font-size: 13.5px;
+  font-family: var(--sisbm-font-body);
+}
+
+.sisbm-input-bar input::placeholder {
+  color: var(--sisbm-text-400);
+  font-family: var(--sisbm-font-mono);
+  font-size: 12.5px;
+}
+
+.sisbm-input-bar input:focus {
+  outline: none;
+  border-color: var(--sisbm-cyan-400);
+}
+
+.sisbm-input-bar button {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--sisbm-cyan-400);
+  color: var(--sisbm-navy-950);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sisbm-input-bar button:hover {
+  background: var(--sisbm-cyan-300);
+}
+
+.sisbm-input-bar button svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 480px) {
+  #sisbm-chat-window {
+    right: 12px;
+    left: 12px;
+    width: auto;
+    bottom: 96px;
+    height: min(560px, 72vh);
+  }
+  #sisbm-chat-launcher {
+    right: 16px;
+    bottom: 84px;
+  }
+}

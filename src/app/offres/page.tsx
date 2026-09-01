@@ -64,7 +64,7 @@ export default function OffersPage() {
           </p>
           <Link
             href="/contact"
-            className="mt-6 inline-block rounded-lg bg-blue-700 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/40"
+            className="mt-6 inline-block rounded-lg bg-cyan px-8 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-cyan-light hover:shadow-lg hover:shadow-cyan/40"
           >
             Demander un devis
           </Link>
