@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BarChart3, Satellite, Wrench } from "lucide-react";
+import { BarChart3, Car, Fuel, Gauge, Satellite, ShieldAlert, ShieldCheck, Truck, Users, Wrench } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
-import GsapImageParallax from "@/components/GsapImageParallax";
 import HeroParallax from "@/components/HeroParallax";
 import OfferCard from "@/components/OfferCard";
 import Reveal from "@/components/Reveal";
@@ -20,6 +19,7 @@ export const metadata = buildMetadata({
 
 const blindSpots = [
   {
+    icon: Car,
     title: "Véhicules mal utilisés",
     issues: ["Utilisations non autorisées", "Trajets personnels", "Heures supplémentaires injustifiées"],
     costLabel: "Kilomètres inutiles",
@@ -28,6 +28,7 @@ const blindSpots = [
     imageAlt: "Tracteur chargé d'objets personnels dans la cour d'une ferme",
   },
   {
+    icon: Fuel,
     title: "Carburant perdu",
     issues: ["Consommations anormales", "Vols et siphonnages", "Écarts théoriques"],
     costLabel: "Jusqu'à 30%",
@@ -36,6 +37,7 @@ const blindSpots = [
     imageAlt: "Ravitaillement nocturne du réservoir d'un camion au dépôt",
   },
   {
+    icon: BarChart3,
     title: "Décisions coûteuses",
     issues: ["Informations incomplètes", "Décisions prises trop tard", "Mauvaise allocation des ressources"],
     costLabel: "Décisions tardives",
@@ -44,6 +46,7 @@ const blindSpots = [
     imageAlt: "Bureau de gestion désordonné, informations éparpillées sur le bureau",
   },
   {
+    icon: Users,
     title: "Équipes incontrôlées",
     issues: ["Feuilles de route non respectées", "Activités non tracées", "Coordination difficile"],
     costLabel: "Productivité en baisse",
@@ -52,6 +55,7 @@ const blindSpots = [
     imageAlt: "Équipe de chantier dispersée et désorganisée sur un grand travaux public",
   },
   {
+    icon: ShieldAlert,
     title: "Vols et insécurité",
     issues: ["Véhicules volés ou détournés", "Cargaisons exposées", "Interventions retardées"],
     costLabel: "Pertes directes",
@@ -63,6 +67,7 @@ const blindSpots = [
 
 const solutionBlocks = [
   {
+    icon: Fuel,
     title: "Optimisation carburant",
     image: "/Ressource_site_sisbm_core/solutions/carburant.jpg",
     imageAlt: "Interface SISBM CORE détectant les anomalies de carburant en temps réel",
@@ -78,6 +83,7 @@ const solutionBlocks = [
     ],
   },
   {
+    icon: Truck,
     title: "Pilotage flotte",
     image: "/Ressource_site_sisbm_core/solutions/flotte.jpg",
     imageAlt: "Tableau de bord SISBM CORE avec localisation en temps réel des véhicules",
@@ -93,6 +99,7 @@ const solutionBlocks = [
     ],
   },
   {
+    icon: ShieldCheck,
     title: "Sécurité & responsabilité",
     image: "/Ressource_site_sisbm_core/solutions/securite.jpg",
     imageAlt: "Caméra de surveillance embarquée Film SISBM CORE",
@@ -251,22 +258,14 @@ export default function HomePage() {
               <Reveal key={spot.title} delay={index * 100} className="h-full">
                 <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:bg-white/5 dark:ring-white/10">
                   <div className="border-t-4 border-red-500" aria-hidden />
-                  {spot.image ? (
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <GsapImageParallax
-                        src={spot.image}
-                        alt={spot.imageAlt}
-                        sizes="(min-width: 1280px) 20vw, (min-width: 640px) 50vw, 100vw"
-                        classNameImage="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                  ) : (
-                    <div className="aspect-[4/3] flex items-center justify-center bg-slate-200 dark:bg-slate-800">
-                      <span aria-hidden className="text-4xl text-slate-500 dark:text-white/70">🚨</span>
-                    </div>
-                  )}
                   <div className="flex flex-1 flex-col p-5">
-                    <h3 className="font-bold leading-snug text-slate-900 dark:text-white">{spot.title}</h3>
+                    <span
+                      aria-hidden
+                      className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-red-600 dark:bg-red-500/15 dark:text-red-300"
+                    >
+                      <spot.icon className="h-6 w-6" />
+                    </span>
+                    <h3 className="mt-3 font-bold leading-snug text-slate-900 dark:text-white">{spot.title}</h3>
                   <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Ce qui se passe :</p>
                   <ul className="mt-2 space-y-1.5">
                     {spot.issues.map((issue) => (
@@ -311,23 +310,14 @@ export default function HomePage() {
               <Reveal key={block.title} delay={index * 100} className="h-full">
                 <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:bg-white/5 dark:ring-white/10">
                   <div aria-hidden className="border-t-4 border-emerald-500" />
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    {block.image ? (
-                      <GsapImageParallax
-                        src={block.image}
-                        alt={block.imageAlt}
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                        classNameImage="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="flex h-full items-center justify-center bg-slate-200 dark:bg-slate-800">
-                        <span aria-hidden className="text-4xl text-slate-500 dark:text-white/70">🚨</span>
-                      </div>
-                    )}
-                  </div>
-
                   <div className="flex flex-1 flex-col p-5">
-                    <h3 className="font-bold leading-snug text-slate-900 dark:text-white">{block.title}</h3>
+                    <span
+                      aria-hidden
+                      className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-300"
+                    >
+                      <block.icon className="h-6 w-6" />
+                    </span>
+                    <h3 className="mt-3 font-bold leading-snug text-slate-900 dark:text-white">{block.title}</h3>
 
                     <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       Problèmes traités
