@@ -130,26 +130,8 @@ export default function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan dark:text-cyan-300">
               {siteConfig.name} · {siteConfig.subtitle}
             </p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-              {(() => {
-                const parts = siteConfig.heroTitle.split(" ");
-                const lead = parts.slice(0, Math.max(1, parts.length - 2)).join(" ");
-                const accent = parts.slice(-2).join(" ");
-                return (
-                  <>
-                    {lead && (
-                      <span className="text-white">{lead} </span>
-                    )}
-                    <span className="relative inline-block text-cyan-300">
-                      {accent}
-                      <span
-                        aria-hidden
-                        className="absolute inset-x-0 -bottom-1 h-1 rounded-full bg-mint sm:-bottom-2 sm:h-1.5"
-                      />
-                    </span>
-                  </>
-                );
-              })()}
+            <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              {siteConfig.heroTitle}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
               {siteConfig.slogan}
