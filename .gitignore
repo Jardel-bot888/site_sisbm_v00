@@ -43,3 +43,6 @@ next-env.d.ts
 
 # lighthouse (rapport d'audit généré)
 lighthouse-report.html
+
+# référence design du site parent (ne pas versionner)
+parent_ref/
