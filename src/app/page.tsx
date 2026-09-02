@@ -89,6 +89,8 @@ const solutionBlocks = [
   {
     icon: MapPin,
     title: "Tracking GPS Intelligent",
+    image: "/solutions_img/solution-1-gps.jpg",
+    imageAlt: "Installation d'une balise GPS et localisation temps réel d'un véhicule",
     description:
       "Collecte, traitement, stockage sécurisé et restitution en temps réel des données issues des équipements GPS installés sur les véhicules.",
     features: [
@@ -108,6 +110,8 @@ const solutionBlocks = [
   {
     icon: Map,
     title: "Géofencing Intelligent",
+    image: "/solutions_img/solution-2-geofencing.jpg",
+    imageAlt: "Zones géographiques définies sur une carte avec véhicules surveillés",
     description:
       "Définissez des zones géographiques autorisées ou interdites : chaque entrée ou sortie déclenche notifications et actions automatiques, conformément à vos politiques de sécurité.",
     features: [
@@ -126,6 +130,8 @@ const solutionBlocks = [
   {
     icon: Gauge,
     title: "Vitesse et horaires sous contrôle",
+    image: "/solutions_img/solution-3-vitesse-horaires.jpg",
+    imageAlt: "Compteur de vitesse avec seuil limite et horaires de service maîtrisés",
     description:
       "Contrôle intelligent de la vitesse et gestion des horaires d'utilisation pour une discipline opérationnelle renforcée.",
     features: [
@@ -145,6 +151,8 @@ const solutionBlocks = [
   {
     icon: Bell,
     title: "Réactivité et Fiabilité des données",
+    image: "/solutions_img/solution-4-alertes-donnees.jpg",
+    imageAlt: "Alertes centralisées reçues sur smartphone et supervision des événements",
     description:
       "Tous les événements critiques sont centralisés et immédiatement diffusés aux personnes concernées via plusieurs canaux, avec une supervision 24/7.",
     features: [
@@ -162,6 +170,8 @@ const solutionBlocks = [
   {
     icon: BarChart3,
     title: "Tableaux de bord décisionnels (KPI)",
+    image: "/solutions_img/solution-5-kpi.jpg",
+    imageAlt: "Tableau de bord KPI clair avec graphiques et indicateurs de performance",
     description:
       "Des tableaux de bord dynamiques consolident en temps réel les indicateurs clés de performance pour faciliter la décision stratégique et opérationnelle.",
     features: [
@@ -384,6 +394,16 @@ export default function HomePage() {
               <Reveal key={block.title} delay={index * 100} className="h-full">
                 <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:bg-white/5 dark:ring-white/10">
                   <div aria-hidden className="border-t-4 border-emerald-500" />
+                  <div className="relative aspect-[16/10] w-full overflow-hidden">
+                    <Image
+                      src={block.image}
+                      alt={block.imageAlt}
+                      fill
+                      loading="lazy"
+                      sizes="(min-width: 1280px) 20vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="flex flex-1 flex-col p-5">
                     <span
                       aria-hidden
