@@ -20,48 +20,69 @@ const targets = [
     width: 1376,
     quality: 82,
   },
-  // Coûts cachés — affichées en cartes ~300px max
-  {
-    file: "public/Ressource_site_sisbm_core/couts_caches/vehicules-mal-utilises.jpg",
-    width: 900,
-    quality: 80,
-  },
-  {
-    file: "public/Ressource_site_sisbm_core/couts_caches/carburant-perdu.jpg",
-    width: 900,
-    quality: 80,
-  },
-  {
-    file: "public/Ressource_site_sisbm_core/couts_caches/decisions-couteuses.jpg",
-    width: 900,
-    quality: 80,
-  },
-  {
-    file: "public/Ressource_site_sisbm_core/couts_caches/equipes-incontrolees.jpg",
-    width: 900,
-    quality: 80,
-  },
-  {
-    file: "public/Ressource_site_sisbm_core/couts_caches/vols-insecurite.jpg",
-    width: 900,
-    quality: 80,
-  },
-  // Solutions — blocs ~640px max
-  {
-    file: "public/Ressource_site_sisbm_core/solutions/carburant.jpg",
-    width: 1200,
-    quality: 82,
-  },
-  {
-    file: "public/Ressource_site_sisbm_core/solutions/flotte.jpg",
-    width: 1200,
-    quality: 82,
-  },
   // Aperçu plateforme — large screenshot
   {
     file: "public/autre_ressource_img/visu_sisbmcore_Image_ma5.jpg",
     width: 1200,
     quality: 82,
+  },
+  // Application mobile (encart "Pourquoi choisir SISBM CORE")
+  {
+    file: "public/visuels_redim/application-mobile.jpg",
+    width: 540,
+    quality: 82,
+  },
+  // Problèmes — cartes 16/10
+  {
+    file: "public/problemes_img/probleme-1-visibilite.jpg",
+    width: 800,
+    quality: 80,
+  },
+  {
+    file: "public/problemes_img/probleme-2-perimetre.jpg",
+    width: 800,
+    quality: 80,
+  },
+  {
+    file: "public/problemes_img/probleme-3-vitesse-horaires.jpg",
+    width: 800,
+    quality: 80,
+  },
+  {
+    file: "public/problemes_img/probleme-4-alertes-donnees.jpg",
+    width: 800,
+    quality: 80,
+  },
+  {
+    file: "public/problemes_img/probleme-5-decisions.jpg",
+    width: 800,
+    quality: 80,
+  },
+  // Solutions — cartes 16/10
+  {
+    file: "public/solutions_img/solution-1-gps.jpg",
+    width: 800,
+    quality: 80,
+  },
+  {
+    file: "public/solutions_img/solution-2-geofencing.jpg",
+    width: 800,
+    quality: 80,
+  },
+  {
+    file: "public/solutions_img/solution-3-vitesse-horaires.jpg",
+    width: 800,
+    quality: 80,
+  },
+  {
+    file: "public/solutions_img/solution-4-alertes-donnees.jpg",
+    width: 800,
+    quality: 80,
+  },
+  {
+    file: "public/solutions_img/solution-5-kpi.jpg",
+    width: 800,
+    quality: 80,
   },
 ];
 
