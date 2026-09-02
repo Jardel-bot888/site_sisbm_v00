@@ -4,9 +4,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  /* Police principale du site : Times New Roman (police système).
-     Fallback `serif` pour les OS sans TNR (Linux/Android récents). */
-  --font-sans: "Times New Roman", Times, serif;
+  /* Police principale du site : Poppins (via next/font/google, exposée en --font-poppins).
+     Fallback système pour les navigateurs anciens. */
+  --font-sans: var(--font-poppins);
 }
 
 /* ------------------------------------------------------------
@@ -44,9 +44,9 @@ html {
    Animations & effets visuels SISBM CORE
    ============================================================ */
 
-/* --- Police du site (Times New Roman) --- */
+/* --- Police du site (Poppins) --- */
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-poppins), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 /* --- Accessibilité : réduire les animations --- */

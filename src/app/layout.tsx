@@ -1,8 +1,5 @@
 ﻿import type { Metadata, Viewport } from "next";
-// Police du site : Times New Roman (police système). Aucun téléchargement réseau
-// requis — pas de web-font, pas d'impact perf, conforme RGPD.
-// (Précédemment : import { Geist } from "next/font/google" + variable --font-geist-sans.
-// Retiré pour aligner la typo sur l'identité visuelle choisie.)
+import { Poppins } from "next/font/google";
 // CSS officiel Lenis : règle `html.lenis { height: auto }` indispensable
 // (sinon le scroll de la page reste plafonné au viewport avec un html en height:100%).
 import "lenis/dist/lenis.css";
@@ -13,6 +10,13 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollProgress from "@/components/ScrollProgress";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
 
 const organizationLd = {
   "@context": "https://schema.org",
@@ -77,7 +81,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="fr"
       data-scroll-behavior="smooth"
-      className="h-full scroll-smooth antialiased"
+      className={`${poppins.variable} h-full scroll-smooth antialiased`}
       suppressHydrationWarning
     >
       <body
