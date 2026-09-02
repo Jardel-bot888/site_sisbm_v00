@@ -517,21 +517,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-2">
-            <figure>
-              <Image
-                src={media.trackerDevice}
-                alt="Matériel installé : balise GPS et relais de coupure moteur"
-                width={540}
-                height={720}
-                loading="lazy"
-                sizes="(min-width: 640px) 22rem, 100vw"
-                className="mx-auto h-auto w-full max-w-[22rem] rounded-xl shadow-md"
-              />
-              <figcaption className="mt-3 text-center text-sm text-slate-500 dark:text-slate-400">
-                Balise GPS et relais de coupure moteur, installés par nos techniciens.
-              </figcaption>
-            </figure>
+          <div className="mt-14 flex justify-center">
             <figure>
               <Image
                 src={media.mobileApp}
