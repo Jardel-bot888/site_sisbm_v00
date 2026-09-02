@@ -381,7 +381,7 @@ export default function HomePage() {
       <section className="relative border-t border-slate-200 py-16 sm:py-20 dark:border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
+            <h2 className="mx-auto max-w-3xl text-center text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
               C&apos;est pour cela que nous développons des technologies clé en main pour piloter votre activité.
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-7 text-slate-600 dark:text-slate-400">
@@ -702,7 +702,7 @@ export default function HomePage() {
         />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
           <Reveal>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-2xl font-bold tracking-tight whitespace-nowrap sm:text-3xl">
               Prêt à reprendre le contrôle de vos actifs ?
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-300">
