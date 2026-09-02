@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BarChart3, Car, Fuel, Gauge, Satellite, ShieldAlert, ShieldCheck, Truck, Users, Wrench } from "lucide-react";
+import { BarChart3, Bell, BellOff, Eye, Gauge, Map, MapPin, Satellite, Wrench } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import HeroParallax from "@/components/HeroParallax";
 import OfferCard from "@/components/OfferCard";
@@ -19,99 +19,153 @@ export const metadata = buildMetadata({
 
 const blindSpots = [
   {
-    icon: Car,
-    title: "Véhicules mal utilisés",
-    issues: ["Utilisations non autorisées", "Trajets personnels", "Heures supplémentaires injustifiées"],
+    icon: Eye,
+    title: "Aucune visibilité sur les véhicules",
+    issues: [
+      "Trajets non maîtrisés",
+      "Véhicules non localisables en temps réel",
+      "Aucun historique exploitable",
+    ],
     costLabel: "Kilomètres inutiles",
-    costText: "et dépenses évitables",
-    image: "/Ressource_site_sisbm_core/couts_caches/vehicules-mal-utilises.jpg",
-    imageAlt: "Tracteur chargé d'objets personnels dans la cour d'une ferme",
+    costText: "facturés sans contrôle ni justification",
   },
   {
-    icon: Fuel,
-    title: "Carburant perdu",
-    issues: ["Consommations anormales", "Vols et siphonnages", "Écarts théoriques"],
-    costLabel: "Jusqu'à 30%",
-    costText: "de carburant perdu",
-    image: "/Ressource_site_sisbm_core/couts_caches/carburant-perdu.jpg",
-    imageAlt: "Ravitaillement nocturne du réservoir d'un camion au dépôt",
+    icon: Map,
+    title: "Utilisations hors périmètre",
+    issues: [
+      "Sorties de zone non détectées",
+      "Utilisations non autorisées",
+      "Véhicules détournés",
+    ],
+    costLabel: "Détournements silencieux",
+    costText: "des actifs exposés quotidiennement",
+  },
+  {
+    icon: Gauge,
+    title: "Conduite à risque & usages hors horaires",
+    issues: [
+      "Excès de vitesse fréquents",
+      "Déplacements hors plages autorisées",
+      "Comportements dangereux",
+    ],
+    costLabel: "Accidents et consommation",
+    costText: "carburant, usure et sinistres en hausse",
+  },
+  {
+    icon: BellOff,
+    title: "Alertes éparpillées & trous de données",
+    issues: [
+      "Événements critiques manqués",
+      "Canaux de notification incohérents",
+      "Traçabilité interrompue en zone blanche",
+    ],
+    costLabel: "Risques non détectés",
+    costText: "des confirmations d'incidents impossibles",
   },
   {
     icon: BarChart3,
-    title: "Décisions coûteuses",
-    issues: ["Informations incomplètes", "Décisions prises trop tard", "Mauvaise allocation des ressources"],
-    costLabel: "Décisions tardives",
-    costText: "augmentent vos coûts d'exploitation",
-    image: "/Ressource_site_sisbm_core/couts_caches/decisions-couteuses.jpg",
-    imageAlt: "Bureau de gestion désordonné, informations éparpillées sur le bureau",
-  },
-  {
-    icon: Users,
-    title: "Équipes incontrôlées",
-    issues: ["Feuilles de route non respectées", "Activités non tracées", "Coordination difficile"],
-    costLabel: "Productivité en baisse",
-    costText: "sur l'ensemble des opérations terrain",
-    image: "/Ressource_site_sisbm_core/couts_caches/equipes-incontrolees.jpg",
-    imageAlt: "Équipe de chantier dispersée et désorganisée sur un grand travaux public",
-  },
-  {
-    icon: ShieldAlert,
-    title: "Vols et insécurité",
-    issues: ["Véhicules volés ou détournés", "Cargaisons exposées", "Interventions retardées"],
-    costLabel: "Pertes directes",
-    costText: "et image de marque dégradée",
-    image: "/Ressource_site_sisbm_core/couts_caches/vols-insecurite.jpg",
-        imageAlt: "Clôture de dépôt industriel forcée pendant la nuit",
+    title: "Décisions à l'aveugle",
+    issues: [
+      "Aucun indicateur consolidé",
+      "Décisions tardives",
+      "Investissements non pilotés par la donnée",
+    ],
+    costLabel: "Opportunités perdues",
+    costText: "la flotte tourne sans vision stratégique",
   },
 ];
 
 const solutionBlocks = [
   {
-    icon: Fuel,
-    title: "Optimisation carburant",
-    image: "/Ressource_site_sisbm_core/solutions/carburant.jpg",
-    imageAlt: "Interface SISBM CORE détectant les anomalies de carburant en temps réel",
-    problems: [
-      "Consommations anormales",
-      "Vols et siphonnages",
-      "Écarts entre consommation théorique et réelle",
+    icon: MapPin,
+    title: "Tracking GPS Intelligent",
+    description:
+      "Collecte, traitement, stockage sécurisé et restitution en temps réel des données issues des équipements GPS installés sur les véhicules.",
+    features: [
+      "Visualisation en temps réel de tous les véhicules",
+      "Historique détaillé des trajets et relecture des déplacements",
+      "Géolocalisation cartographique",
+      "Surveillance de la vitesse",
+      "Suivi des arrêts et redémarrages moteur",
+      "Contrôle de la qualité des signaux GPS et GSM",
     ],
-    results: [
-      "Détection immédiate des anomalies de carburant",
-      "Réduction des pertes de carburant",
-      "Historique complet des consommations",
-    ],
-  },
-  {
-    icon: Truck,
-    title: "Pilotage flotte",
-    image: "/Ressource_site_sisbm_core/solutions/flotte.jpg",
-    imageAlt: "Tableau de bord SISBM CORE avec localisation en temps réel des véhicules",
-    problems: [
-      "Manque de visibilité sur les véhicules",
-      "Utilisations non autorisées",
-      "Trajets et horaires non maîtrisés",
-    ],
-    results: [
-      "Véhicules utilisés uniquement pendant les heures autorisées",
-      "Contrôle des itinéraires et des arrêts",
-      "Réduction des usages non autorisés",
+    benefits: [
+      "Pilotage en temps réel des opérations",
+      "Amélioration de la productivité",
+      "Historique complet des déplacements",
     ],
   },
   {
-    icon: ShieldCheck,
-    title: "Sécurité & responsabilité",
-    image: "/Ressource_site_sisbm_core/solutions/securite.jpg",
-    imageAlt: "Caméra de surveillance embarquée Film SISBM CORE",
-    problems: [
-      "Incidents et litiges non prouvés",
-      "Comportements à risque",
-      "Manque de preuves vidéo",
+    icon: Map,
+    title: "Géofencing Intelligent",
+    description:
+      "Définissez des zones géographiques autorisées ou interdites : chaque entrée ou sortie déclenche notifications et actions automatiques, conformément à vos politiques de sécurité.",
+    features: [
+      "Création illimitée de zones géographiques",
+      "Détection automatique des entrées et sorties",
+      "Notifications instantanées",
+      "Déclenchement automatique de scénarios de sécurité",
+      "Immobilisation contrôlée du véhicule selon vos conditions de sécurité",
     ],
-    results: [
-      "Preuve vidéo des incidents",
-      "Réduction des contestations",
-      "Contrôle des comportements à risque",
+    benefits: [
+      "Protection contre les utilisations non autorisées",
+      "Réduction des risques de vol",
+      "Contrôle des zones d'exploitation",
+    ],
+  },
+  {
+    icon: Gauge,
+    title: "Vitesse et horaires sous contrôle",
+    description:
+      "Contrôle intelligent de la vitesse et gestion des horaires d'utilisation pour une discipline opérationnelle renforcée.",
+    features: [
+      "Seuils de vitesse personnalisés",
+      "Détection automatique des excès de vitesse",
+      "Alertes immédiates et procédures de sécurité automatiques",
+      "Calendrier d'utilisation configurable",
+      "Contrôle automatique des horaires et alertes en cas d'usage non autorisé",
+    ],
+    benefits: [
+      "Réduction des comportements dangereux",
+      "Moins d'usages abusifs",
+      "Contrôle des déplacements hors service",
+      "Réduction des coûts d'exploitation",
+    ],
+  },
+  {
+    icon: Bell,
+    title: "Réactivité et Fiabilité des données",
+    description:
+      "Tous les événements critiques sont centralisés et immédiatement diffusés aux personnes concernées via plusieurs canaux, avec une supervision 24/7.",
+    features: [
+      "Notifications par e-mail, SMS, WhatsApp, dashboard et application mobile",
+      "Supervision 24/7 des événements",
+      "Continuité de service Store & Forward : sauvegarde hors GSM puis synchronisation automatique",
+    ],
+    benefits: [
+      "Réactivité immédiate",
+      "Réduction du temps de réponse aux incidents",
+      "Amélioration de la coordination des équipes",
+      "Aucune perte de données, même en zone blanche",
+    ],
+  },
+  {
+    icon: BarChart3,
+    title: "Tableaux de bord décisionnels (KPI)",
+    description:
+      "Des tableaux de bord dynamiques consolident en temps réel les indicateurs clés de performance pour faciliter la décision stratégique et opérationnelle.",
+    features: [
+      "Tableau de bord en temps réel",
+      "Indicateurs personnalisables par profil utilisateur",
+      "Graphiques et statistiques interactifs",
+      "Comparaison par période",
+      "Export des rapports (PDF, Excel)",
+      "Envoi automatique de rapports périodiques",
+    ],
+    benefits: [
+      "Vision globale de la flotte",
+      "Aide à la décision",
+      "Amélioration continue des performances",
     ],
   },
 ];
@@ -319,11 +373,15 @@ export default function HomePage() {
                     </span>
                     <h3 className="mt-3 font-bold leading-snug text-slate-900 dark:text-white">{block.title}</h3>
 
+                    <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                      {block.description}
+                    </p>
+
                     <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                      Problèmes traités
+                      Ce que la solution fait
                     </p>
                     <ul className="mt-2 space-y-1.5 rounded-lg bg-slate-100 p-3 dark:bg-slate-900/60">
-                      {block.problems.map((item) => (
+                      {block.features.map((item) => (
                         <li key={item} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
                           <span aria-hidden className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400 dark:bg-slate-500" />
                           {item}
@@ -334,10 +392,10 @@ export default function HomePage() {
                     <div className="mt-auto pt-4">
                       <div className="rounded-lg bg-emerald-50 p-3 ring-1 ring-emerald-100 dark:bg-emerald-500/10 dark:ring-0">
                         <span className="block text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
-                          Résultats obtenus
+                          Bénéfices clés
                         </span>
                         <ul className="mt-2 space-y-2">
-                          {block.results.map((item) => (
+                          {block.benefits.map((item) => (
                             <li key={item} className="flex items-start gap-2 text-sm">
                               <span
                                 aria-hidden
