@@ -12,9 +12,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/15 bg-blue-900/95 shadow-lg shadow-blue-950/30 backdrop-blur-md">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2">
+    <header className="sticky top-0 z-50 isolate border-b border-white/15 bg-blue-900 shadow-lg shadow-blue-950/30">
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-3 sm:px-6 lg:px-8">
+        <Link href="/" className="flex shrink-0 items-center gap-2">
           <Image
             src={media.logo}
             alt={`Logo ${siteConfig.company}`}
@@ -25,16 +25,11 @@ export default function Navbar() {
           <span className="text-xl font-bold tracking-tight text-white">
             {siteConfig.name}
           </span>
+  
         </Link>
 
-        {/* Sous-titre produit */}
-        <span className="hidden items-center gap-1 text-xs font-semibold uppercase tracking-wider text-blue-200 xl:flex">
-          <span>{siteConfig.subtitle}</span>
-          <span aria-hidden>·</span>
-        </span>
-
         {/* Menu desktop */}
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => {
             const isActive =
               link.href === "/"
