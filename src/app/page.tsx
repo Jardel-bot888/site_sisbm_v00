@@ -21,6 +21,8 @@ const blindSpots = [
   {
     icon: Eye,
     title: "Aucune visibilité sur les véhicules",
+    image: "/problemes_img/probleme-1-visibilite.jpg",
+    imageAlt: "Gestionnaire de flotte sans visibilité sur la position des véhicules",
     issues: [
       "Trajets non maîtrisés",
       "Véhicules non localisables en temps réel",
@@ -32,6 +34,8 @@ const blindSpots = [
   {
     icon: Map,
     title: "Utilisations hors périmètre",
+    image: "/problemes_img/probleme-2-perimetre.jpg",
+    imageAlt: "Véhicules utilisés en dehors de la zone autorisée",
     issues: [
       "Sorties de zone non détectées",
       "Utilisations non autorisées",
@@ -43,6 +47,8 @@ const blindSpots = [
   {
     icon: Gauge,
     title: "Conduite à risque & usages hors horaires",
+    image: "/problemes_img/probleme-3-vitesse-horaires.jpg",
+    imageAlt: "Conduite à risque la nuit et usages en dehors des horaires autorisés",
     issues: [
       "Excès de vitesse fréquents",
       "Déplacements hors plages autorisées",
@@ -54,6 +60,8 @@ const blindSpots = [
   {
     icon: BellOff,
     title: "Alertes éparpillées & trous de données",
+    image: "/problemes_img/probleme-4-alertes-donnees.jpg",
+    imageAlt: "Notifications d'alertes dispersées et données manquantes",
     issues: [
       "Événements critiques manqués",
       "Canaux de notification incohérents",
@@ -65,6 +73,8 @@ const blindSpots = [
   {
     icon: BarChart3,
     title: "Décisions à l'aveugle",
+    image: "/problemes_img/probleme-5-decisions.jpg",
+    imageAlt: "Responsable sans indicateurs clairs pour prendre ses décisions",
     issues: [
       "Aucun indicateur consolidé",
       "Décisions tardives",
@@ -312,6 +322,16 @@ export default function HomePage() {
               <Reveal key={spot.title} delay={index * 100} className="h-full">
                 <article className="group flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:bg-white/5 dark:ring-white/10">
                   <div className="border-t-4 border-red-500" aria-hidden />
+                  <div className="relative aspect-[16/10] w-full overflow-hidden">
+                    <Image
+                      src={spot.image}
+                      alt={spot.imageAlt}
+                      fill
+                      loading="lazy"
+                      sizes="(min-width: 1280px) 20vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="flex flex-1 flex-col p-5">
                     <span
                       aria-hidden
@@ -373,33 +393,33 @@ export default function HomePage() {
                     </span>
                     <h3 className="mt-3 font-bold leading-snug text-slate-900 dark:text-white">{block.title}</h3>
 
-                    <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">
+                    <p className="mt-2 text-sm leading-5 text-slate-500 dark:text-slate-400 line-clamp-2">
                       {block.description}
                     </p>
 
-                    <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    <p className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       Ce que la solution fait
                     </p>
-                    <ul className="mt-2 space-y-1.5 rounded-lg bg-slate-100 p-3 dark:bg-slate-900/60">
+                    <ul className="mt-1.5 grid gap-x-4 gap-y-1 rounded-lg bg-slate-100 p-3 dark:bg-slate-900/60 sm:grid-cols-2">
                       {block.features.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+                        <li key={item} className="flex max-w-full items-start gap-2 text-xs leading-5 text-slate-600 dark:text-slate-300">
                           <span aria-hidden className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400 dark:bg-slate-500" />
-                          {item}
+                          <span>{item}</span>
                         </li>
                       ))}
                     </ul>
 
-                    <div className="mt-auto pt-4">
+                    <div className="mt-auto pt-3">
                       <div className="rounded-lg bg-emerald-50 p-3 ring-1 ring-emerald-100 dark:bg-emerald-500/10 dark:ring-0">
-                        <span className="block text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
+                        <span className="block text-[11px] font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
                           Bénéfices clés
                         </span>
-                        <ul className="mt-2 space-y-2">
+                        <ul className="mt-1.5 space-y-1">
                           {block.benefits.map((item) => (
-                            <li key={item} className="flex items-start gap-2 text-sm">
+                            <li key={item} className="flex items-start gap-2 text-xs">
                               <span
                                 aria-hidden
-                                className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[11px] font-bold text-emerald-700 dark:bg-emerald-500/30 dark:text-emerald-200"
+                                className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-[10px] font-bold text-emerald-700 dark:bg-emerald-500/30 dark:text-emerald-200"
                               >
                                 ✓
                               </span>
