@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import type { Offer } from "@/data/site";
 
@@ -10,7 +10,7 @@ type OfferCardProps = {
 const hoverRings: Record<string, string> = {
   standard: "hover:ring-blue-400/40 hover:shadow-blue-400/30",
   gold: "hover:ring-amber-400/40 hover:shadow-amber-400/30",
-  premium: "hover:ring-teal-400/40 hover:shadow-teal-400/30",
+  premium: "hover:ring-red-400/40 hover:shadow-red-400/30",
 };
 
 export default function OfferCard({ offer, delay = 0 }: OfferCardProps) {
