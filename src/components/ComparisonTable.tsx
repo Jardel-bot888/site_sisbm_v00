@@ -43,7 +43,7 @@ export default function ComparisonTable() {
                 <th
                   key={offer.slug}
                   scope="col"
-                  className={`px-4 py-4 text-center ${offer.theme.accentText.replace(/text-\w+-\d+/, "text-white")} ${offer.theme.solid} font-extrabold tracking-wide`}
+                  className={`px-4 py-4 text-center text-white ${offer.theme.solid} font-extrabold tracking-wide`}
                 >
                   {offer.title}
                 </th>
