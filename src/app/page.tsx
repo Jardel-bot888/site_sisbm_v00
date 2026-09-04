@@ -497,17 +497,10 @@ export default function HomePage() {
       <section className="relative border-t border-slate-200 bg-slate-50 py-16 dark:border-white/10 dark:bg-white/5 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
-            <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-cyan">
-              Conclusion
-            </p>
-            <h2 className="mt-3 text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-              Bien plus qu&rsquo;un syst&egrave;me de g&eacute;olocalisation
+            <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              Pourquoi choisir SISBM CORE ?
             </h2>
-            <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-7 text-slate-600 dark:text-slate-400">
-              SISBM CORE transforme les donn&eacute;es issues des v&eacute;hicules en actions op&eacute;rationnelles, en m&eacute;canismes de s&eacute;curit&eacute; et en outils d&rsquo;aide &agrave; la d&eacute;cision. Gr&acirc;ce &agrave; l&rsquo;automatisation, &agrave; la supervision en temps r&eacute;el et &agrave; l&rsquo;application de vos politiques de gestion, la plateforme accompagne durablement vos performances.
-            </p>
           </Reveal>
-
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason, index) => (
               <Reveal key={reason.title} delay={index * 100} className="h-full">
