@@ -5,14 +5,11 @@
 // Note : les fichiers sont écrasés en place (l'historique git
 // conserve les originaux si besoin de restauration).
 // ============================================================
-
 import sharp from "sharp";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-
 const targets = [
   // Hero — image plein écran LCP
   {
@@ -27,11 +24,6 @@ const targets = [
     quality: 82,
   },
   // Application mobile (encart "Pourquoi choisir SISBM CORE")
-  {
-    file: "public/visuels_redim/application-mobile.jpg",
-    width: 540,
-    quality: 82,
-  },
   // Problèmes — cartes 16/10
   {
     file: "public/problemes_img/probleme-1-visibilite.jpg",
@@ -85,15 +77,12 @@ const targets = [
     quality: 80,
   },
 ];
-
 let totalBefore = 0;
 let totalAfter = 0;
-
 for (const t of targets) {
   const abs = path.join(repoRoot, t.file);
   const beforeSize = (await sharp(abs).metadata()).size ?? 0;
   totalBefore += beforeSize;
-
   const info = await sharp(abs)
     .rotate()
     .resize({
@@ -102,14 +91,12 @@ for (const t of targets) {
     })
     .jpeg({ quality: t.quality, mozjpeg: true })
     .toBuffer();
-
   // Écriture via fichier temporaire puis remplacement atomique
   // (contourne les verrous d'écriture du watcher dev sur Windows).
   const tmp = `${abs}.new`;
   await sharp(info).toFile(tmp);
   fs.rmSync(abs, { force: true });
   fs.renameSync(tmp, abs);
-
   totalAfter += info.length;
   const pct = beforeSize > 0 ? Math.round((1 - info.length / beforeSize) * 100) : 0;
   console.log(
@@ -118,7 +105,6 @@ for (const t of targets) {
       .padStart(5)} Ko (-${pct}%)`
   );
 }
-
 console.log(
   `\nTotal : ${(totalBefore / 1024 / 1024).toFixed(2)} Mo -> ${(totalAfter / 1024 / 1024).toFixed(2)} Mo`
 );

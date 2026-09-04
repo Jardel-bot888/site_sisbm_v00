@@ -90,7 +90,7 @@ export default function AboutPage() {
               Nos engagements
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason, index) => (
               <Reveal key={reason.title} delay={index * 100}>
                 <div className="glass-light group h-full rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-300/40 hover:shadow-lg hover:shadow-blue-500/20">

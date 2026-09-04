@@ -493,46 +493,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ POURQUOI SISBM CORE ============ */}
-      <section className="bg-slate-50 py-16 dark:bg-white/5 sm:py-20">
+      {/* ============ CONCLUSION ============ */}
+      <section className="relative border-t border-slate-200 bg-slate-50 py-16 dark:border-white/10 dark:bg-white/5 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal>
-            <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-              Pourquoi choisir SISBM CORE ?
+            <p className="text-center text-sm font-semibold uppercase tracking-[0.25em] text-cyan">
+              Conclusion
+            </p>
+            <h2 className="mt-3 text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              Bien plus qu&rsquo;un syst&egrave;me de g&eacute;olocalisation
             </h2>
+            <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-7 text-slate-600 dark:text-slate-400">
+              SISBM CORE transforme les donn&eacute;es issues des v&eacute;hicules en actions op&eacute;rationnelles, en m&eacute;canismes de s&eacute;curit&eacute; et en outils d&rsquo;aide &agrave; la d&eacute;cision. Gr&acirc;ce &agrave; l&rsquo;automatisation, &agrave; la supervision en temps r&eacute;el et &agrave; l&rsquo;application de vos politiques de gestion, la plateforme accompagne durablement vos performances.
+            </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {reasons.map((reason, index) => (
               <Reveal key={reason.title} delay={index * 100} className="h-full">
-                <article className="h-full rounded-xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-md">
+                <article className="group relative h-full overflow-hidden rounded-xl border border-slate-200 bg-white p-6 pl-7 dark:border-white/10 dark:bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/40 hover:shadow-md">
+                  <span aria-hidden className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-cta to-cyan" />
                   <reason.icon
                     aria-hidden
                     className="h-9 w-9 text-blue-600 dark:text-blue-400"
                   />
                   <h3 className="mt-3 font-bold text-slate-900 dark:text-white">{reason.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">{reason.text}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">{reason.text}</p>
                 </article>
               </Reveal>
             ))}
           </div>
 
-          <div className="mt-14 flex justify-center">
-            <figure>
-              <Image
-                src={media.mobileApp}
-                alt="Suivi de la flotte depuis l'application mobile"
-                width={540}
-                height={720}
-                loading="lazy"
-                sizes="(min-width: 640px) 22rem, 100vw"
-                className="mx-auto h-auto w-full max-w-[22rem] rounded-xl shadow-md"
-              />
-              <figcaption className="mt-3 text-center text-sm text-slate-500 dark:text-slate-400">
-                Votre flotte dans la poche : suivi en temps réel depuis votre mobile.
-              </figcaption>
-            </figure>
-          </div>
+          <Reveal delay={200}>
+            <div className="mt-10 overflow-hidden rounded-2xl bg-blue-900 px-6 py-8 text-center shadow-lg shadow-blue-950/30 sm:px-10 sm:py-10">
+              <p className="text-lg font-semibold leading-relaxed text-white sm:text-xl">
+                Passez du simple tracking &agrave; la gestion intelligente de votre flotte.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 

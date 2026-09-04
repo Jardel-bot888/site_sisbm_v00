@@ -11,7 +11,9 @@ import {
   Map,
   MapPin,
   Satellite,
+  Shield,
   Smartphone,
+  TrendingDown,
   Wrench,
 } from "lucide-react";
 
@@ -76,7 +78,7 @@ export const media = {
   logo: "/Ressource_site_sisbm_core/logo.png",
   hero: "/autre_ressource_img/presentvehiculegemini.jpg",
   geolocation: "/Ressource_site_sisbm_core/geolocalisation.jpg",
-  mobileApp: "/visuels_redim/application-mobile.jpg",
+
   platformScreenshot: "/autre_ressource_img/visu_sisbmcore_Image_ma5.jpg",
 };
 
@@ -217,24 +219,19 @@ export type ReasonItem = {
 
 export const reasons: ReasonItem[] = [
   {
-    icon: MapPin,
-    title: "Suivi en temps réel",
-    text: "Position haute précision et historique de vos trajets, accessibles à tout moment.",
+    icon: Shield,
+    title: "Securite renforcee",
+    text: "Prevention du vol, des usages non autorises et des comportements a risque.",
   },
   {
-    icon: Satellite,
-    title: "Hébergement en local",
-    text: "Vos données de géolocalisation restent sur votre infrastructure, en toute confidentialité.",
+    icon: Gauge,
+    title: "Performance operationnelle",
+    text: "Pilotage temps reel, productivite et disponibilite de la flotte.",
   },
   {
-    icon: Wrench,
-    title: "Matériel fiable",
-    text: "Traqueurs 4G et relais de coupure moteur installés et configurés par nos équipes.",
-  },
-  {
-    icon: Smartphone,
-    title: "Suivi depuis mobile",
-    text: "Consultez votre flotte depuis votre smartphone ou tablette, quand vous voulez.",
+    icon: TrendingDown,
+    title: "Maitrise des couts",
+    text: "Moins d'usages abusifs, maintenance anticipee, consommation suivie.",
   },
 ];
 
