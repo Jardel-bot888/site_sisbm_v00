@@ -19,7 +19,7 @@ const targets = [
   },
   // Aperçu plateforme — large screenshot
   {
-    file: "public/autre_ressource_img/visu_sisbmcore_Image_ma5.jpg",
+    file: "public/autre_ressource_img/apercu-plateforme.jpg",
     width: 1200,
     quality: 82,
   },

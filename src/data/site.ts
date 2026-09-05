@@ -79,7 +79,7 @@ export const media = {
   hero: "/autre_ressource_img/presentvehiculegemini.jpg",
   geolocation: "/Ressource_site_sisbm_core/geolocalisation.jpg",
 
-  platformScreenshot: "/autre_ressource_img/visu_sisbmcore_Image_ma5.jpg",
+  platformScreenshot: "/autre_ressource_img/apercu-plateforme.jpg",
 };
 
 // ------------------------------------------------------------
