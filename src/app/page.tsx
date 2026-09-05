@@ -455,14 +455,6 @@ export default function HomePage() {
             ))}
           </div>
 
-          <Reveal delay={350}>
-            <p className="mt-10 text-center text-sm italic text-slate-500 dark:text-slate-400">
-              <span aria-hidden>💡</span>
-              <span className="ml-1">
-                Exemple d&apos;utilisation : un opérateur de transport utilise les vidéos pour clarifier les litiges et responsabiliser les conducteurs.
-              </span>
-            </p>
-          </Reveal>
         </div>
       </section>
 
