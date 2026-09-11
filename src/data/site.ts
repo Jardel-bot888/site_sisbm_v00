@@ -13,7 +13,6 @@ import {
   Satellite,
   Shield,
   Smartphone,
-  TrendingDown,
   Wrench,
 } from "lucide-react";
 
@@ -219,19 +218,29 @@ export type ReasonItem = {
 
 export const reasons: ReasonItem[] = [
   {
-    icon: Shield,
-    title: "Securite renforcee",
-    text: "Prevention du vol, des usages non autorises et des comportements a risque.",
-  },
-  {
     icon: Gauge,
-    title: "Performance operationnelle",
-    text: "Pilotage temps reel, productivite et disponibilite de la flotte.",
+    title: "Automatisation des règles de gestion",
+    text: "Automatisez vos processus métier : règles de gestion configurées sur la plateforme.",
   },
   {
-    icon: TrendingDown,
-    title: "Maitrise des couts",
-    text: "Moins d'usages abusifs, maintenance anticipee, consommation suivie.",
+    icon: Bell,
+    title: "Alerte par SMS, Email",
+    text: "Notifications en temps réel par SMS et e-mail pour tous les événements critiques.",
+  },
+  {
+    icon: Smartphone,
+    title: "Plateforme personnalisable",
+    text: "Interface et fonctionnalités adaptées à votre activité et à vos besoins.",
+  },
+  {
+    icon: Shield,
+    title: "Conformité ARTCI",
+    text: "Conformité ARTCI relative à la confidentialité des données à caractère personnel sur la plateforme.",
+  },
+  {
+    icon: BarChart3,
+    title: "Intégration SOC / SIEM",
+    text: "Supervision de la sécurité informatique et intégration avec vos outils SOC / SIEM.",
   },
 ];
 
